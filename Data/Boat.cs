@@ -4,11 +4,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace BoatSheet
 {
-    [Serializable()]
+    [Serializable]
     public class Boat : ISerializable
     {
         /**************************/
-        [Serializable()]
+        [Serializable]
         public struct NonCashAsset
         {
             public int numAllins;
@@ -21,7 +21,7 @@ namespace BoatSheet
         }
 
         public DateTime date { get; set;}
-        public string boat { get; set;}
+        public string boatName { get; set;}
         public string sailTime { get; set; }
         public decimal bankOut { get; set; }
 
@@ -73,6 +73,16 @@ namespace BoatSheet
         public string notes;
         public string employeeInitials;
 
+        public Boat()
+        {
+            clearBoat();
+            inBank = new Bank();
+            depositBank = new Bank();
+            boatName = "Minne";
+            determinePrices(boatName);
+            date = DateTime.Today;
+        }
+
         public Boat(string inBoat)
         {
             clearBoat();
@@ -88,7 +98,7 @@ namespace BoatSheet
         public Boat(SerializationInfo info, StreamingContext ctxt)
         {
             date = info.GetDateTime("date");
-            boat = info.GetString("boat");
+            boatName = info.GetString("boatName");
             sailTime = info.GetString("sailTime");
             bankOut = info.GetDecimal("bankOut");
 
@@ -122,6 +132,7 @@ namespace BoatSheet
             override_CashAmt = info.GetBoolean("override_AllInCount");
 
             inBank = (Bank)info.GetValue("inBank",typeof(Bank));
+            depositBank = (Bank)info.GetValue("depositBank", typeof(Bank));
 
             expectedTotal = info.GetDecimal("expectedTotal");
             actualTotal = info.GetDecimal("actualTotal");
@@ -137,12 +148,13 @@ namespace BoatSheet
             personalCheck = (NonCashAsset)info.GetValue("personalCheck", typeof(NonCashAsset));
 
             notes = info.GetString("notes");
+            employeeInitials = info.GetString("employeeInitials");
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
             info.AddValue("date", date);
-            info.AddValue("boat", boat);
+            info.AddValue("boatName", boatName);
             info.AddValue("sailTime", sailTime);
             info.AddValue("bankOut", bankOut);
 
@@ -176,6 +188,7 @@ namespace BoatSheet
             info.AddValue("override_CashAmt", override_CashAmt);
 
             info.AddValue("inBank", inBank);
+            info.AddValue("depositBank", depositBank);
 
             info.AddValue("expectedTotal", expectedTotal);
             info.AddValue("actualTotal", actualTotal);
@@ -191,15 +204,16 @@ namespace BoatSheet
             info.AddValue("personalCheck", personalCheck);
 
             info.AddValue("notes", notes);
+            info.AddValue("employeeInitials", employeeInitials);
         }
 
         #endregion
 
         public void determinePrices(string inBoat)
         {
-            boat = inBoat;
+            boatName = inBoat;
 
-            if(boat == "Saint")
+            if(boatName == "Saint")
             {
                 AllInVal = Bank.saintAllInVal;
                 BaseVal = Bank.saintBaseVal;
@@ -211,7 +225,7 @@ namespace BoatSheet
                 AllInVal = Bank.minmoAllInVal;
                 BaseVal = Bank.minmoBaseVal;
                 AcrylOnlyVal = Bank.minmoAcrylOnlyVal;
-                if (boat == "Minne")
+                if (boatName == "Minne")
                     bankOut = 300.0m;
                 else bankOut = 150.0m;
             }
@@ -226,7 +240,7 @@ namespace BoatSheet
         public void clearBoat()
         {
             date = DateTime.Today;
-            boat = "Empty";
+            boatName = "Empty";
             sailTime = "notime";
             bankOut = 0.0m;
 

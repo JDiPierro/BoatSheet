@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BoatSheet
 {
-    [Serializable()]
+    [Serializable]
     public class Bank : ISerializable
     {
         public enum Denomination

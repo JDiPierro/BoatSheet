@@ -37,6 +37,12 @@ namespace BoatSheet
                     card = currBoat.personalCheck;
                     break;
             }
+
+            price_AllIn.Text = String.Format("{0:C}", currBoat.AllInVal);
+            price_Base.Text = String.Format("{0:C}", currBoat.BaseVal);
+            price_AcrylicOnly.Text = String.Format("{0:C}", currBoat.AcrylOnlyVal);
+            price_AcrylicAddOn.Text = String.Format("{0:C}", Bank.addOnAcrylVal);
+
             getStartValues();
         }
 

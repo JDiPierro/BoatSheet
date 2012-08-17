@@ -36,15 +36,15 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.allIns = new System.Windows.Forms.NumericUpDown();
             this.baseOnly = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.price_AllIn = new System.Windows.Forms.Label();
+            this.price_Base = new System.Windows.Forms.Label();
             this.lbl_AllInValue = new System.Windows.Forms.Label();
             this.lbl_BaseValue = new System.Windows.Forms.Label();
             this.lbl_AcrylOnly = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.price_AcrylicOnly = new System.Windows.Forms.Label();
             this.numAcrylOnly = new System.Windows.Forms.NumericUpDown();
             this.lbl_AcrylicAddOn = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.price_AcrylicAddOn = new System.Windows.Forms.Label();
             this.numAcrylicAddOn = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.otherAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newTotal)).BeginInit();
@@ -62,6 +62,7 @@
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Other Amount:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // otherAdd
             // 
@@ -94,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 160);
+            this.label3.Location = new System.Drawing.Point(66, 160);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 19;
@@ -136,23 +137,25 @@
             this.baseOnly.TabIndex = 25;
             this.baseOnly.ValueChanged += new System.EventHandler(this.baseOnly_ValueChanged);
             // 
-            // label4
+            // price_AllIn
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "All Ins:";
+            this.price_AllIn.AutoSize = true;
+            this.price_AllIn.Location = new System.Drawing.Point(60, 30);
+            this.price_AllIn.Name = "price_AllIn";
+            this.price_AllIn.Size = new System.Drawing.Size(40, 13);
+            this.price_AllIn.TabIndex = 26;
+            this.price_AllIn.Text = "$00.00";
+            this.price_AllIn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
+            // price_Base
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(43, 56);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Base Only:";
+            this.price_Base.AutoSize = true;
+            this.price_Base.Location = new System.Drawing.Point(60, 56);
+            this.price_Base.Name = "price_Base";
+            this.price_Base.Size = new System.Drawing.Size(40, 13);
+            this.price_Base.TabIndex = 27;
+            this.price_Base.Text = "$00.00";
+            this.price_Base.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl_AllInValue
             // 
@@ -175,20 +178,22 @@
             // lbl_AcrylOnly
             // 
             this.lbl_AcrylOnly.AutoSize = true;
-            this.lbl_AcrylOnly.Location = new System.Drawing.Point(186, 82);
+            this.lbl_AcrylOnly.Location = new System.Drawing.Point(187, 82);
             this.lbl_AcrylOnly.Name = "lbl_AcrylOnly";
             this.lbl_AcrylOnly.Size = new System.Drawing.Size(34, 13);
             this.lbl_AcrylOnly.TabIndex = 32;
             this.lbl_AcrylOnly.Text = "$0.00";
             // 
-            // label7
+            // price_AcrylicOnly
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(36, 82);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "Acrylic Only:";
+            this.price_AcrylicOnly.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.price_AcrylicOnly.AutoSize = true;
+            this.price_AcrylicOnly.Location = new System.Drawing.Point(60, 82);
+            this.price_AcrylicOnly.Name = "price_AcrylicOnly";
+            this.price_AcrylicOnly.Size = new System.Drawing.Size(40, 13);
+            this.price_AcrylicOnly.TabIndex = 31;
+            this.price_AcrylicOnly.Text = "$00.00";
+            this.price_AcrylicOnly.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // numAcrylOnly
             // 
@@ -207,14 +212,15 @@
             this.lbl_AcrylicAddOn.TabIndex = 35;
             this.lbl_AcrylicAddOn.Text = "$0.00";
             // 
-            // label8
+            // price_AcrylicAddOn
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 108);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 13);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "Acrylic Add-On:";
+            this.price_AcrylicAddOn.AutoSize = true;
+            this.price_AcrylicAddOn.Location = new System.Drawing.Point(60, 108);
+            this.price_AcrylicAddOn.Name = "price_AcrylicAddOn";
+            this.price_AcrylicAddOn.Size = new System.Drawing.Size(40, 13);
+            this.price_AcrylicAddOn.TabIndex = 34;
+            this.price_AcrylicAddOn.Text = "$00.00";
+            this.price_AcrylicAddOn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // numAcrylicAddOn
             // 
@@ -230,15 +236,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(266, 221);
             this.Controls.Add(this.lbl_AcrylicAddOn);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.price_AcrylicAddOn);
             this.Controls.Add(this.numAcrylicAddOn);
             this.Controls.Add(this.lbl_AcrylOnly);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.price_AcrylicOnly);
             this.Controls.Add(this.numAcrylOnly);
             this.Controls.Add(this.lbl_BaseValue);
             this.Controls.Add(this.lbl_AllInValue);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.price_Base);
+            this.Controls.Add(this.price_AllIn);
             this.Controls.Add(this.baseOnly);
             this.Controls.Add(this.allIns);
             this.Controls.Add(this.btnSave);
@@ -272,15 +278,15 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.NumericUpDown allIns;
         private System.Windows.Forms.NumericUpDown baseOnly;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label price_AllIn;
+        private System.Windows.Forms.Label price_Base;
         private System.Windows.Forms.Label lbl_AllInValue;
         private System.Windows.Forms.Label lbl_BaseValue;
         private System.Windows.Forms.Label lbl_AcrylOnly;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label price_AcrylicOnly;
         private System.Windows.Forms.NumericUpDown numAcrylOnly;
         private System.Windows.Forms.Label lbl_AcrylicAddOn;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label price_AcrylicAddOn;
         private System.Windows.Forms.NumericUpDown numAcrylicAddOn;
     }
 }

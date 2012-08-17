@@ -19,6 +19,5 @@ namespace BoatSheet
 
         public static string lastSaveLoc = String.Empty;
 
-        public static string empty;
     }
 }
