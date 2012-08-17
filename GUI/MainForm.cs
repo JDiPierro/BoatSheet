@@ -8,14 +8,9 @@ namespace BoatSheet
     {
         private Boat currBoat;
 
-        private decimal otherVal = 0.0m;
-
-        private string lastSaveLoc;
-
         public BoatSheet()
         {
             InitializeComponent();
-            currBoat = new Boat("Minne");
         }
 
         private void newBoatToolStripMenuItem_Click(object sender, EventArgs e)
