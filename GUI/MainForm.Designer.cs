@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_NewBoat = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menu_SaveBoat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_LoadBoat = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.newBoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadBoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveBoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
@@ -65,10 +65,10 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newBoatToolStripMenuItem,
+            this.menu_NewBoat,
             this.toolStripSeparator1,
-            this.saveBoatToolStripMenuItem,
-            this.loadBoatToolStripMenuItem,
+            this.menu_SaveBoat,
+            this.menu_LoadBoat,
             this.toolStripSeparator2,
             this.clearToolStripMenuItem,
             this.toolStripSeparator3,
@@ -77,11 +77,47 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // menu_NewBoat
+            // 
+            this.menu_NewBoat.Name = "menu_NewBoat";
+            this.menu_NewBoat.Size = new System.Drawing.Size(152, 22);
+            this.menu_NewBoat.Text = "New Boat";
+            this.menu_NewBoat.Click += new System.EventHandler(this.Event_NewTab);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // menu_SaveBoat
+            // 
+            this.menu_SaveBoat.Name = "menu_SaveBoat";
+            this.menu_SaveBoat.Size = new System.Drawing.Size(152, 22);
+            this.menu_SaveBoat.Text = "Save Boat";
+            this.menu_SaveBoat.Click += new System.EventHandler(this.Event_NewTab);
+            // 
+            // menu_LoadBoat
+            // 
+            this.menu_LoadBoat.Name = "menu_LoadBoat";
+            this.menu_LoadBoat.Size = new System.Drawing.Size(152, 22);
+            this.menu_LoadBoat.Text = "Load Boat";
+            this.menu_LoadBoat.Click += new System.EventHandler(this.Event_NewTab);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
             this.clearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clearToolStripMenuItem.Text = "Clear";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -119,42 +155,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // newBoatToolStripMenuItem
-            // 
-            this.newBoatToolStripMenuItem.Name = "newBoatToolStripMenuItem";
-            this.newBoatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newBoatToolStripMenuItem.Text = "New Boat";
-            this.newBoatToolStripMenuItem.Click += new System.EventHandler(this.newBoatToolStripMenuItem_Click);
-            // 
-            // loadBoatToolStripMenuItem
-            // 
-            this.loadBoatToolStripMenuItem.Name = "loadBoatToolStripMenuItem";
-            this.loadBoatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.loadBoatToolStripMenuItem.Text = "Load Boat";
-            this.loadBoatToolStripMenuItem.Click += new System.EventHandler(this.loadBoatToolStripMenuItem_Click);
-            // 
-            // saveBoatToolStripMenuItem
-            // 
-            this.saveBoatToolStripMenuItem.Name = "saveBoatToolStripMenuItem";
-            this.saveBoatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveBoatToolStripMenuItem.Text = "Save Boat";
-            this.saveBoatToolStripMenuItem.Click += new System.EventHandler(this.saveBoatToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // statusStrip1
             // 
@@ -206,10 +206,10 @@
         private System.Windows.Forms.ToolStripMenuItem changePricesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newBoatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menu_NewBoat;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem saveBoatToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadBoatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menu_SaveBoat;
+        private System.Windows.Forms.ToolStripMenuItem menu_LoadBoat;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.StatusStrip statusStrip1;

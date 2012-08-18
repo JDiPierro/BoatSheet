@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\WorkDay.cs" />
     <Compile Include="GUI\Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,10 +119,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\Util\Serializer.cs" />
     <Compile Include="Data\Util\Settings.cs" />
-    <Compile Include="BoatPage.cs">
+    <Compile Include="GUI\BoatPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BoatPage.Designer.cs">
+    <Compile Include="GUI\BoatPage.Designer.cs">
       <DependentUpon>BoatPage.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="GUI\Add.resx">
@@ -148,7 +149,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BoatPage.resx">
+    <EmbeddedResource Include="GUI\BoatPage.resx">
       <DependentUpon>BoatPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BoatSheet_TemporaryKey.pfx" />
