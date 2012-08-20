@@ -14,25 +14,83 @@ namespace BoatSheet
         public BoatSheet()
         {
             InitializeComponent();
+            Startup();
+
             today = new WorkDay();
+        }
+
+        public void Startup()
+        {
+            //Check if Settings file exists...
+                //Yes: Load settings from file
+                //No: Make new Settings file with defaults
+            //Check if a file exists for Today in the default save path (Loaded from Settings file)
+                //Yes: Load it
+                //No: Make a new Day file and open a new boat tab.
         }
 
         //EVENT
         private void Event_NewTab(object sender, EventArgs e)
         {
             var objSender = (ToolStripMenuItem)sender;
-            
-            BoatPage page = newTab();
 
-            if (objSender == menu_LoadBoat || objSender == menu_LoadDay)
+
+            if (objSender == menu_LoadBoat)
             {
-                page.loadBoat();
+                OpenFileDialog fld = new OpenFileDialog();
+                fld.AddExtension = true;
+                if (today.myFile == null)
+                    fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                else
+                    fld.InitialDirectory = today.myFile;
+                fld.DefaultExt = "boat";
+                fld.Filter = "Boat Data (*.boat)|*.boat|All files (*.*)|*.*";
+
+                string loc;
+                if (fld.ShowDialog() == DialogResult.OK)
+                {
+                    loc = fld.FileName;
+                    BoatPage page = newTab();
+                    page.loadBoat(loc);
+                }
+            }
+            else
+            {
+                newTab();
             }
         }
 
         private void Click_SaveTab(object sender, EventArgs e)
         {
-                today.saveDay();
+            var objSender = (ToolStripMenuItem) sender;
+
+            if (today.dailyBoats.Count > 0)
+            {
+                if (objSender == menu_SaveDayAs || today.myFile == null)
+                {
+                    SaveFileDialog fld = new SaveFileDialog();
+                    fld.AddExtension = true;
+                    if (today.myFile == null)
+                        fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    else
+                        fld.InitialDirectory = today.myFile;
+                    fld.FileName = String.Format("{0}", DateTime.Today.ToString("yyyy-MM-dd"));
+                    fld.DefaultExt = "day";
+                    fld.Filter = "Day Data (*.day)|*.day|All files (*.*)|*.*";
+
+                    string loc;
+                    if (fld.ShowDialog() == DialogResult.OK)
+                    {
+                        loc = fld.FileName;
+                        today.myFile = loc;
+                        today.saveDay();
+                    }
+                }
+                else
+                {
+                    today.saveDay();
+                }
+            }
         }
 
         private BoatPage newTab()
@@ -92,6 +150,7 @@ namespace BoatSheet
             {
                 loc = fld.FileName;
                 today = Serializer.DeSerializeDay(loc);
+                today.myFile = loc;
             }
 
             int loadedBoats = today.dailyBoats.Count;
@@ -101,5 +160,29 @@ namespace BoatSheet
             }
         }
 
+        private void tabChanged(object sender, EventArgs e)
+        {
+            if(today.myFile != null)
+            {
+                today.saveDay();
+            }
+        }
+
+        private void exit(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void DeleteBoat_Click(object sender, EventArgs e)
+        {
+            TabPage deleteThis = tabControl.SelectedTab;
+
+            BoatPage page = (BoatPage)deleteThis.Controls[0];
+
+            today.dailyBoats.Remove(page.currBoat);
+
+            tabControl.SelectedIndex++;
+            tabControl.TabPages.Remove(deleteThis);
+        }
     }
 }

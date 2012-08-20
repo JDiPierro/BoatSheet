@@ -12,9 +12,12 @@ namespace BoatSheet.Data
     {
         public List<Boat> dailyBoats;
 
+        public string myFile;
+
         public WorkDay()
         {
             dailyBoats = new List<Boat>();
+            myFile = null;
         }
 
         #region SERIALIZATION
@@ -33,23 +36,7 @@ namespace BoatSheet.Data
 
         public void saveDay()
         {
-            SaveFileDialog fld = new SaveFileDialog();
-            fld.AddExtension = true;
-            if (Settings.lastSaveLoc == null)
-                fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            else
-                fld.InitialDirectory = Settings.lastSaveLoc;
-            fld.FileName = String.Format("{0}", DateTime.Today.ToString("YYYY-mm-dd"));
-            fld.DefaultExt = "day";
-            fld.Filter = "Day Data (*.day)|*.day|All files (*.*)|*.*";
-
-            string loc;
-            if (fld.ShowDialog() == DialogResult.OK)
-            {
-                loc = fld.FileName;
-                Serializer.SerializeDay(loc, this);
-                Settings.lastSaveLoc = loc;
-            }
+            Serializer.SerializeDay(myFile, this);
         }
 
         public void addBoat(Boat newBoat)

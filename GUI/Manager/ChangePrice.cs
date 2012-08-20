@@ -11,6 +11,8 @@ namespace BoatSheet.GUI.Manager
 {
     public partial class ChangePrice : Form
     {
+        private bool ignoreEvent;
+
         public ChangePrice()
         {
             InitializeComponent();
@@ -27,60 +29,65 @@ namespace BoatSheet.GUI.Manager
 
         private void getPrices()
         {
-            if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
+            ignoreEvent = true;
+            if (boatSelect.SelectedIndex == (int)Boat.boatType.Saint)
             {
                 price_AllIn.Value = Settings.saintAllInVal;
                 price_BaseOnly.Value = Settings.saintBaseVal;
                 price_AcrylicOnly.Value = Settings.saintAcrylOnlyVal;
             }
-            else //if (Boat.boatType.MINNE.Equals(boatSelect.SelectedIndex))
+            else
             {
                 price_AllIn.Value = Settings.minmoAllInVal;
                 price_BaseOnly.Value = Settings.minmoBaseVal;
                 price_AcrylicOnly.Value = Settings.minmoAcrylOnlyVal;
             }
+            ignoreEvent = false;
         }
 
         private void valueChanged(Object sender, EventArgs e)
         {
-            var objSender = (NumericUpDown) sender;
+            if (!ignoreEvent)
+            {
+                var objSender = (NumericUpDown) sender;
 
-            if (objSender == price_AllIn)
-            {
-                if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
+                if (objSender == price_AllIn)
                 {
-                    Settings.saintAllInVal = objSender.Value;
+                    if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
+                    {
+                        Settings.saintAllInVal = objSender.Value;
+                    }
+                    else
+                    {
+                        Settings.minmoAllInVal = objSender.Value;
+                    }
+                }
+                else if (objSender == price_BaseOnly)
+                {
+                    if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
+                    {
+                        Settings.saintBaseVal = objSender.Value;
+                    }
+                    else
+                    {
+                        Settings.minmoBaseVal = objSender.Value;
+                    }
+                }
+                else if (objSender == price_AcrylicOnly)
+                {
+                    if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
+                    {
+                        Settings.saintAcrylOnlyVal = objSender.Value;
+                    }
+                    else
+                    {
+                        Settings.minmoAcrylOnlyVal = objSender.Value;
+                    }
                 }
                 else
                 {
-                    Settings.minmoAllInVal = objSender.Value;
+                    Settings.addOnAcrylVal = objSender.Value;
                 }
-            }
-            else if(objSender == price_BaseOnly)
-            {
-                if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
-                {
-                    Settings.saintBaseVal = objSender.Value;
-                }
-                else
-                {
-                    Settings.minmoBaseVal = objSender.Value;
-                }
-            }
-            else if(objSender == price_AcrylicOnly)
-            {
-                if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
-                {
-                    Settings.saintAcrylOnlyVal = objSender.Value;
-                }
-                else
-                {
-                    Settings.minmoAcrylOnlyVal = objSender.Value;
-                }
-            }
-            else
-            {
-                Settings.addOnAcrylVal = objSender.Value;
             }
         }
 

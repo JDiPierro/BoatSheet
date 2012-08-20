@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 using BoatSheet.Data;
 
 namespace BoatSheet
@@ -31,26 +32,42 @@ namespace BoatSheet
 
         public static Boat DeSerializeBoat(string filename)
         {
-            Stream stream = File.Open(filename, FileMode.Open);
+            try
+            {
+                Stream stream = File.Open(filename, FileMode.Open);
 
-            var bFormatter = new BinaryFormatter();
-            Boat loadedBoat = (Boat)bFormatter.Deserialize(stream);
+                var bFormatter = new BinaryFormatter();
+                Boat loadedBoat = (Boat) bFormatter.Deserialize(stream);
 
-            stream.Close();
+                stream.Close();
 
-            return loadedBoat;
+                return loadedBoat;
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
         }
 
         public static WorkDay DeSerializeDay(string filename)
         {
-            Stream stream = File.Open(filename, FileMode.Open);
+            try
+            {
+                Stream stream = File.Open(filename, FileMode.Open);
 
-            var bFormatter = new BinaryFormatter();
-            WorkDay loadedDay = (WorkDay)bFormatter.Deserialize(stream);
+                var bFormatter = new BinaryFormatter();
+                WorkDay loadedDay = (WorkDay) bFormatter.Deserialize(stream);
 
-            stream.Close();
+                stream.Close();
 
-            return loadedDay;
+                return loadedDay;
+            }
+            catch(Exception e)
+            {
+                
+            }
+            return null;
         }
     }
 }

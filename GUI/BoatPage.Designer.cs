@@ -222,9 +222,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(728, 507);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(734, 422);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 13);
+            this.label9.Size = new System.Drawing.Size(96, 20);
             this.label9.TabIndex = 110;
             this.label9.Text = "Your Initials:";
             // 
@@ -295,11 +296,12 @@
             // 
             // txt_Initials
             // 
-            this.txt_Initials.Location = new System.Drawing.Point(806, 504);
+            this.txt_Initials.Location = new System.Drawing.Point(830, 422);
             this.txt_Initials.Name = "txt_Initials";
-            this.txt_Initials.Size = new System.Drawing.Size(80, 20);
+            this.txt_Initials.Size = new System.Drawing.Size(56, 20);
             this.txt_Initials.TabIndex = 111;
             this.txt_Initials.Click += new System.EventHandler(this.txt_Initials_TextChanged);
+            this.txt_Initials.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // grp_BillsIn
             // 
@@ -555,6 +557,7 @@
             // 
             // dtp_BoatDate
             // 
+            this.dtp_BoatDate.Enabled = false;
             this.dtp_BoatDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_BoatDate.Location = new System.Drawing.Point(101, 19);
             this.dtp_BoatDate.Name = "dtp_BoatDate";
@@ -635,7 +638,7 @@
             this.txt_SailTime.Name = "txt_SailTime";
             this.txt_SailTime.Size = new System.Drawing.Size(86, 20);
             this.txt_SailTime.TabIndex = 11;
-            this.txt_SailTime.TextChanged += new System.EventHandler(this.txt_SailTime_TextChanged);
+            this.txt_SailTime.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // btnSaveScreen
             // 
@@ -663,6 +666,7 @@
             this.boatNotes.Name = "boatNotes";
             this.boatNotes.Size = new System.Drawing.Size(249, 102);
             this.boatNotes.TabIndex = 101;
+            this.boatNotes.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // grp_CoinsIn
             // 
@@ -1835,7 +1839,6 @@
             // 
             // pkgsViewedNS
             // 
-            this.pkgsViewedNS.Enabled = false;
             this.pkgsViewedNS.Location = new System.Drawing.Point(101, 72);
             this.pkgsViewedNS.Maximum = new decimal(new int[] {
             999999,
@@ -1846,7 +1849,7 @@
             this.pkgsViewedNS.Size = new System.Drawing.Size(63, 20);
             this.pkgsViewedNS.TabIndex = 32;
             this.pkgsViewedNS.ThousandsSeparator = true;
-            this.pkgsViewedNS.ValueChanged += new System.EventHandler(this.pkgsViewedNS_ValueChanged);
+            this.pkgsViewedNS.ValueChanged += new System.EventHandler(this.packages_ValueChanged);
             // 
             // label56
             // 
@@ -1859,7 +1862,6 @@
             // 
             // pkgsNotViewed
             // 
-            this.pkgsNotViewed.Enabled = false;
             this.pkgsNotViewed.Location = new System.Drawing.Point(101, 46);
             this.pkgsNotViewed.Maximum = new decimal(new int[] {
             999999,
@@ -1870,7 +1872,7 @@
             this.pkgsNotViewed.Size = new System.Drawing.Size(63, 20);
             this.pkgsNotViewed.TabIndex = 31;
             this.pkgsNotViewed.ThousandsSeparator = true;
-            this.pkgsNotViewed.ValueChanged += new System.EventHandler(this.pkgsChanged_NV);
+            this.pkgsNotViewed.ValueChanged += new System.EventHandler(this.packages_ValueChanged);
             // 
             // pkgsOut
             // 
@@ -1884,7 +1886,7 @@
             this.pkgsOut.Size = new System.Drawing.Size(63, 20);
             this.pkgsOut.TabIndex = 30;
             this.pkgsOut.ThousandsSeparator = true;
-            this.pkgsOut.ValueChanged += new System.EventHandler(this.pkgsOut_ValueChanged);
+            this.pkgsOut.ValueChanged += new System.EventHandler(this.packages_ValueChanged);
             // 
             // label3
             // 
@@ -1927,12 +1929,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.grpDeposit);
-            this.Controls.Add(this.txt_Initials);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.grp_BillsIn);
             this.Controls.Add(this.grp_Boat);
             this.Controls.Add(this.btnSaveScreen);
+            this.Controls.Add(this.txt_Initials);
             this.Controls.Add(this.label61);
             this.Controls.Add(this.boatNotes);
             this.Controls.Add(this.grp_CoinsIn);
@@ -1942,7 +1944,7 @@
             this.Controls.Add(this.grp_Packages);
             this.Controls.Add(this.btnClear);
             this.Name = "BoatPage";
-            this.Size = new System.Drawing.Size(1010, 667);
+            this.Size = new System.Drawing.Size(1024, 768);
             this.grpDeposit.ResumeLayout(false);
             this.grpDeposit.PerformLayout();
             this.grp_BillsIn.ResumeLayout(false);

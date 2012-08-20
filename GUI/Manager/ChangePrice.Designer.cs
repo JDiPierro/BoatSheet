@@ -47,6 +47,7 @@
             // 
             // boatSelect
             // 
+            this.boatSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boatSelect.FormattingEnabled = true;
             this.boatSelect.Items.AddRange(new object[] {
             "Saint",

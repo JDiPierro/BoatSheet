@@ -10,8 +10,6 @@ namespace BoatSheet
 
         public Boat currBoat;
 
-        private decimal otherVal = 0.0m;
-
         private string lastSaveLoc;
 
         public BoatPage(TabPage inTab, Boat inBoat)
@@ -53,28 +51,14 @@ namespace BoatSheet
             }
         }
 
-        public void loadBoat()
+        public void loadBoat(string loc)
         {
             clearSheet();
-            OpenFileDialog fld = new OpenFileDialog();
-            fld.AddExtension = true;
-            if (lastSaveLoc == null)
-                fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            else
-                fld.InitialDirectory = lastSaveLoc;
-            fld.DefaultExt = "boatName";
-            fld.Filter = "Boat Data (*.boatName)|*.boatName|All files (*.*)|*.*";
+            currBoat = Serializer.DeSerializeBoat(loc);
+            currBoat.updatePackages();
+            currBoat.updateTotals();
 
-            string loc;
-            if (fld.ShowDialog() == DialogResult.OK)
-            {
-                loc = fld.FileName;
-                currBoat = Serializer.DeSerializeBoat(loc);
-                currBoat.updatePackages();
-                currBoat.updateTotals();
-
-                updateOnLoad();
-            }
+            updateOnLoad();
         }
 
         public void updateOnLoad()
@@ -486,6 +470,7 @@ namespace BoatSheet
 
         private void prd_BoatSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
+            currBoat.boatName = (Boat.boatType) sel_BoatSelect.SelectedIndex;
             currBoat.determinePrices(sel_BoatSelect.SelectedIndex);
 
             bankOutAmt.Value = currBoat.bankOut;
@@ -502,12 +487,6 @@ namespace BoatSheet
         private void dtp_BoatDate_ValueChanged(object sender, EventArgs e)
         {
             currBoat.date = dtp_BoatDate.Value;
-        }
-
-        private void txt_SailTime_TextChanged(object sender, EventArgs e)
-        {
-            currBoat.sailTime = txt_SailTime.Text;
-            setName();
         }
 
         private void txt_Initials_TextChanged(object sender, EventArgs e)
@@ -590,33 +569,21 @@ namespace BoatSheet
             }
         }
 
-        private void pkgsOut_ValueChanged(object sender, EventArgs e)
+        private void packages_ValueChanged(object sender, EventArgs e)
         {
-            if (pkgsOut.Value != 0.0m)
+            var objSender = (NumericUpDown)sender;
+            if (objSender == pkgsOut)
             {
-                pkgsNotViewed.Enabled = true;
-                pkgsViewedNS.Enabled = true;
+                currBoat.pkgsOut = Convert.ToInt32(pkgsOut.Value);
+            }
+            else if (objSender == pkgsNotViewed)
+            {
+                currBoat.pkgsNotViewed = Convert.ToInt32(pkgsNotViewed.Value);
             }
             else
             {
-                pkgsNotViewed.Enabled = false;
-                pkgsViewedNS.Enabled = false;
+                currBoat.pkgsViewedNS = Convert.ToInt32(pkgsViewedNS.Value);
             }
-            currBoat.pkgsOut = Convert.ToInt32(pkgsOut.Value);
-            currBoat.updatePackages();
-            updatePkgDisplay();
-        }
-
-        private void pkgsChanged_NV(object sender, EventArgs e)
-        {
-            currBoat.pkgsNotViewed = Convert.ToInt32(pkgsNotViewed.Value);
-            currBoat.updatePackages();
-            updatePkgDisplay();
-        }
-
-        private void pkgsViewedNS_ValueChanged(object sender, EventArgs e)
-        {
-            currBoat.pkgsViewedNS = Convert.ToInt32(pkgsViewedNS.Value);
             currBoat.updatePackages();
             updatePkgDisplay();
         }
@@ -722,6 +689,24 @@ namespace BoatSheet
         }
 
         #endregion
+
+        private void txtBox_TextChanged(object sender, EventArgs e)
+        {
+            var objSender = (TextBox) sender;
+            if (objSender == boatNotes)
+            {
+                currBoat.notes = boatNotes.Text;
+            }
+            else if (objSender == txt_Initials)
+            {
+                currBoat.employeeInitials = txt_Initials.Text;
+            }
+            else if (objSender == txt_SailTime)
+            {
+                currBoat.sailTime = txt_SailTime.Text;
+                setName();
+            }
+        }
 
     }
 }

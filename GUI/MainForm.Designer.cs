@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_NewBoat = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_LoadBoat = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menu_SaveDay = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_SaveDayAs = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_LoadDay = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.boatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_NewBoat = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menu_LoadBoat = new System.Windows.Forms.ToolStripMenuItem();
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_deleteBoat = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -55,7 +55,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.toolsToolStripMenuItem,
+            this.boatToolStripMenuItem,
             this.managerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -66,37 +66,14 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menu_NewBoat,
-            this.menu_LoadBoat,
-            this.toolStripSeparator1,
             this.menu_SaveDay,
+            this.menu_SaveDayAs,
             this.menu_LoadDay,
             this.toolStripSeparator2,
-            this.clearToolStripMenuItem,
-            this.toolStripSeparator3,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            // 
-            // menu_NewBoat
-            // 
-            this.menu_NewBoat.Name = "menu_NewBoat";
-            this.menu_NewBoat.Size = new System.Drawing.Size(152, 22);
-            this.menu_NewBoat.Text = "New Boat";
-            this.menu_NewBoat.Click += new System.EventHandler(this.Event_NewTab);
-            // 
-            // menu_LoadBoat
-            // 
-            this.menu_LoadBoat.Name = "menu_LoadBoat";
-            this.menu_LoadBoat.Size = new System.Drawing.Size(152, 22);
-            this.menu_LoadBoat.Text = "Load Boat";
-            this.menu_LoadBoat.Click += new System.EventHandler(this.Event_NewTab);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // menu_SaveDay
             // 
@@ -104,6 +81,13 @@
             this.menu_SaveDay.Size = new System.Drawing.Size(152, 22);
             this.menu_SaveDay.Text = "Save Day";
             this.menu_SaveDay.Click += new System.EventHandler(this.Click_SaveTab);
+            // 
+            // menu_SaveDayAs
+            // 
+            this.menu_SaveDayAs.Name = "menu_SaveDayAs";
+            this.menu_SaveDayAs.Size = new System.Drawing.Size(152, 22);
+            this.menu_SaveDayAs.Text = "Save Day As";
+            this.menu_SaveDayAs.Click += new System.EventHandler(this.Click_SaveTab);
             // 
             // menu_LoadDay
             // 
@@ -117,37 +101,58 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
-            // clearToolStripMenuItem
-            // 
-            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.clearToolStripMenuItem.Text = "Clear";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
-            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exit);
             // 
-            // toolsToolStripMenuItem
+            // boatToolStripMenuItem
             // 
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.toolsToolStripMenuItem.Text = "Tools";
+            this.boatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_NewBoat,
+            this.toolStripSeparator1,
+            this.menu_LoadBoat});
+            this.boatToolStripMenuItem.Name = "boatToolStripMenuItem";
+            this.boatToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.boatToolStripMenuItem.Text = "Boat";
+            // 
+            // menu_NewBoat
+            // 
+            this.menu_NewBoat.Name = "menu_NewBoat";
+            this.menu_NewBoat.Size = new System.Drawing.Size(127, 22);
+            this.menu_NewBoat.Text = "New Boat";
+            this.menu_NewBoat.Click += new System.EventHandler(this.Event_NewTab);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(124, 6);
+            // 
+            // menu_LoadBoat
+            // 
+            this.menu_LoadBoat.Name = "menu_LoadBoat";
+            this.menu_LoadBoat.Size = new System.Drawing.Size(127, 22);
+            this.menu_LoadBoat.Text = "Load Boat";
+            this.menu_LoadBoat.Click += new System.EventHandler(this.Event_NewTab);
             // 
             // managerToolStripMenuItem
             // 
             this.managerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changePricesToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.optionsToolStripMenuItem,
+            this.menu_deleteBoat});
             this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
             this.managerToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.managerToolStripMenuItem.Text = "Manager";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changePricesToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Text = "Options";
             // 
             // changePricesToolStripMenuItem
             // 
@@ -156,11 +161,12 @@
             this.changePricesToolStripMenuItem.Text = "Change Prices";
             this.changePricesToolStripMenuItem.Click += new System.EventHandler(this.Click_Change_Price);
             // 
-            // optionsToolStripMenuItem
+            // menu_deleteBoat
             // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.optionsToolStripMenuItem.Text = "Options";
+            this.menu_deleteBoat.Name = "menu_deleteBoat";
+            this.menu_deleteBoat.Size = new System.Drawing.Size(152, 22);
+            this.menu_deleteBoat.Text = "Delete Boat";
+            this.menu_deleteBoat.Click += new System.EventHandler(this.DeleteBoat_Click);
             // 
             // errorProvider1
             // 
@@ -184,6 +190,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1019, 596);
             this.tabControl.TabIndex = 1;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabChanged);
             // 
             // BoatSheet
             // 
@@ -208,22 +215,22 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolStripMenuItem managerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem changePricesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menu_NewBoat;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem menu_SaveDay;
-        private System.Windows.Forms.ToolStripMenuItem menu_LoadBoat;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.ToolStripMenuItem menu_LoadDay;
+        private System.Windows.Forms.ToolStripMenuItem boatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menu_NewBoat;
+        private System.Windows.Forms.ToolStripMenuItem menu_LoadBoat;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem changePricesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menu_deleteBoat;
+        private System.Windows.Forms.ToolStripMenuItem menu_SaveDayAs;
     }
 }
 
