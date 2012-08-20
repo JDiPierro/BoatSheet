@@ -8,6 +8,15 @@ namespace BoatSheet
     public class Boat : ISerializable
     {
         /**************************/
+
+        public enum boatType
+        {
+            Saint,
+            Minne,
+            Mohican,
+            NONE
+        }
+
         [Serializable]
         public struct NonCashAsset
         {
@@ -21,7 +30,7 @@ namespace BoatSheet
         }
 
         public DateTime date { get; set;}
-        public string boatName { get; set;}
+        public boatType boatName { get; set;}
         public string sailTime { get; set; }
         public decimal bankOut { get; set; }
 
@@ -78,12 +87,12 @@ namespace BoatSheet
             clearBoat();
             inBank = new Bank();
             depositBank = new Bank();
-            boatName = "Minne";
+            boatName = boatType.Minne;
             determinePrices(boatName);
             date = DateTime.Today;
         }
 
-        public Boat(string inBoat)
+        public Boat(boatType inBoat)
         {
             clearBoat();
             inBank = new Bank();
@@ -98,7 +107,7 @@ namespace BoatSheet
         public Boat(SerializationInfo info, StreamingContext ctxt)
         {
             date = info.GetDateTime("date");
-            boatName = info.GetString("boatName");
+            boatName = (boatType)info.GetValue("boatName",typeof(boatType));
             sailTime = info.GetString("sailTime");
             bankOut = info.GetDecimal("bankOut");
 
@@ -209,23 +218,43 @@ namespace BoatSheet
 
         #endregion
 
-        public void determinePrices(string inBoat)
+        public void determinePrices(int inBoat)
         {
-            boatName = inBoat;
-
-            if(boatName == "Saint")
+            if ((boatType)inBoat == boatType.Saint)
             {
-                AllInVal = Bank.saintAllInVal;
-                BaseVal = Bank.saintBaseVal;
-                AcrylOnlyVal = Bank.saintAcrylOnlyVal;
+                AllInVal = Settings.saintAllInVal;
+                BaseVal = Settings.saintBaseVal;
+                AcrylOnlyVal = Settings.saintAcrylOnlyVal;
                 bankOut = 150.0m;
             }
             else
             {
-                AllInVal = Bank.minmoAllInVal;
-                BaseVal = Bank.minmoBaseVal;
-                AcrylOnlyVal = Bank.minmoAcrylOnlyVal;
-                if (boatName == "Minne")
+                AllInVal = Settings.minmoAllInVal;
+                BaseVal = Settings.minmoBaseVal;
+                AcrylOnlyVal = Settings.minmoAcrylOnlyVal;
+                if ((boatType)inBoat == boatType.Minne)
+                    bankOut = 300.0m;
+                else bankOut = 150.0m;
+            }
+            otherValue = 0.0m;
+            updateTotals();
+        }
+
+        public void determinePrices(boatType inBoat)
+        {
+            if (inBoat == boatType.Minne)
+            {
+                AllInVal = Settings.saintAllInVal;
+                BaseVal = Settings.saintBaseVal;
+                AcrylOnlyVal = Settings.saintAcrylOnlyVal;
+                bankOut = 150.0m;
+            }
+            else
+            {
+                AllInVal = Settings.minmoAllInVal;
+                BaseVal = Settings.minmoBaseVal;
+                AcrylOnlyVal = Settings.minmoAcrylOnlyVal;
+                if (inBoat == boatType.Minne)
                     bankOut = 300.0m;
                 else bankOut = 150.0m;
             }
@@ -240,7 +269,7 @@ namespace BoatSheet
         public void clearBoat()
         {
             date = DateTime.Today;
-            boatName = "Empty";
+            boatName = boatType.Minne;
             sailTime = "notime";
             bankOut = 0.0m;
 
@@ -296,7 +325,7 @@ namespace BoatSheet
             expectedTotal += (sold_allIn + sold_reprint_allIn) * AllInVal;
             expectedTotal += (sold_baseOnly + sold_reprint_Base) * BaseVal;
             expectedTotal += sold_acrylicOnly * AcrylOnlyVal;
-            expectedTotal += sold_acrylicAddOn * Bank.addOnAcrylVal;
+            expectedTotal += sold_acrylicAddOn * Settings.addOnAcrylVal;
             expectedTotal += otherPrints * otherValue;
 
             actualTotal = 0.0m;
@@ -371,7 +400,7 @@ namespace BoatSheet
             tempTotal += CC.numAllins*AllInVal;
             tempTotal += CC.numBaseOnly*BaseVal;
             tempTotal += CC.numAcrylicOnly*AcrylOnlyVal;
-            tempTotal += CC.numAcrylicAddOn*Bank.addOnAcrylVal;
+            tempTotal += CC.numAcrylicAddOn * Settings.addOnAcrylVal;
             tempTotal += CC.otherValue;
 
             return tempTotal;

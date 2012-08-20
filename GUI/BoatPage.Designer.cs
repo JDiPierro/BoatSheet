@@ -173,7 +173,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.grpDeposit.SuspendLayout();
             this.grp_BillsIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bkI_Hundreds)).BeginInit();
@@ -1924,21 +1923,10 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(631, 333);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(86, 23);
-            this.btnSave.TabIndex = 73;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // BoatPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.grpDeposit);
             this.Controls.Add(this.txt_Initials);
@@ -1954,7 +1942,7 @@
             this.Controls.Add(this.grp_Packages);
             this.Controls.Add(this.btnClear);
             this.Name = "BoatPage";
-            this.Size = new System.Drawing.Size(935, 542);
+            this.Size = new System.Drawing.Size(1010, 667);
             this.grpDeposit.ResumeLayout(false);
             this.grpDeposit.PerformLayout();
             this.grp_BillsIn.ResumeLayout(false);
@@ -2159,6 +2147,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnSave;
     }
 }

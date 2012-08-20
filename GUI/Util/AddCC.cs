@@ -41,7 +41,7 @@ namespace BoatSheet
             price_AllIn.Text = String.Format("{0:C}", currBoat.AllInVal);
             price_Base.Text = String.Format("{0:C}", currBoat.BaseVal);
             price_AcrylicOnly.Text = String.Format("{0:C}", currBoat.AcrylOnlyVal);
-            price_AcrylicAddOn.Text = String.Format("{0:C}", Bank.addOnAcrylVal);
+            price_AcrylicAddOn.Text = String.Format("{0:C}", Settings.addOnAcrylVal);
 
             getStartValues();
         }
@@ -107,7 +107,7 @@ namespace BoatSheet
         private void numAcrylicAddOn_ValueChanged(object sender, EventArgs e)
         {
             card.numAcrylicAddOn = Convert.ToInt32(numAcrylicAddOn.Value);
-            lbl_AcrylicAddOn.Text = string.Format("{0:C}", card.numAcrylicAddOn * Bank.addOnAcrylVal);
+            lbl_AcrylicAddOn.Text = string.Format("{0:C}", card.numAcrylicAddOn * Settings.addOnAcrylVal);
             updateTotal();
         }
 
@@ -123,7 +123,7 @@ namespace BoatSheet
             card.total += card.numAllins * currBoat.AllInVal;
             card.total += card.numBaseOnly * currBoat.BaseVal;
             card.total += card.numAcrylicOnly * currBoat.AcrylOnlyVal;
-            card.total += card.numAcrylicAddOn * Bank.addOnAcrylVal;
+            card.total += card.numAcrylicAddOn * Settings.addOnAcrylVal;
             card.total += card.otherValue;
 
             newTotal.Value = card.total;

@@ -19,14 +19,15 @@ namespace BoatSheet
             InitializeComponent();
             currBoat = inBoat;
             myTab = inTab;
-            sel_BoatSelect.SelectedIndex = 1;
+            sel_BoatSelect.SelectedIndex = (int)currBoat.boatName;
+
+            setName();
         }
 
         #region Utils
 
         private void btnSaveScreen_Click(object sender, EventArgs e)
         {
-            preSaveValidate();
             using (var bmp = new Bitmap(Width, Height))
             {
                 DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
@@ -52,30 +53,6 @@ namespace BoatSheet
             }
         }
 
-        public void saveBoat()
-        {
-            preSaveValidate();
-            SaveFileDialog fld = new SaveFileDialog();
-            fld.AddExtension = true;
-            if (lastSaveLoc == null)
-                fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            else
-                fld.InitialDirectory = lastSaveLoc;
-            fld.FileName = String.Format("{0} {1} {2}", currBoat.sailTime,
-                                            currBoat.boatName,
-                                            currBoat.date.ToString("MM.dd.yyyy"));
-            fld.DefaultExt = "boatName";
-            fld.Filter = "Boat Data (*.boatName)|*.boatName|All files (*.*)|*.*";
-
-            string loc;
-            if (fld.ShowDialog() == DialogResult.OK)
-            {
-                loc = fld.FileName;
-                Serializer.SerializeObject(loc, currBoat);
-                lastSaveLoc = loc;
-            }
-        }
-
         public void loadBoat()
         {
             clearSheet();
@@ -92,7 +69,7 @@ namespace BoatSheet
             if (fld.ShowDialog() == DialogResult.OK)
             {
                 loc = fld.FileName;
-                currBoat = Serializer.DeSerializeObject(loc);
+                currBoat = Serializer.DeSerializeBoat(loc);
                 currBoat.updatePackages();
                 currBoat.updateTotals();
 
@@ -100,7 +77,7 @@ namespace BoatSheet
             }
         }
 
-        private void updateOnLoad()
+        public void updateOnLoad()
         {
             dtp_BoatDate.Value = currBoat.date;
             sel_BoatSelect.SelectedItem = currBoat.boatName;
@@ -153,7 +130,7 @@ namespace BoatSheet
 
         private void clearSheet()
         {
-            currBoat = new Boat(sel_BoatSelect.SelectedItem.ToString());
+            currBoat = new Boat((Boat.boatType)sel_BoatSelect.SelectedIndex);
             bkI_Ls_Quarters.Value = 0;
             bkI_Ls_Dimes.Value = 0;
             bkI_Ls_Nickels.Value = 0;
@@ -204,24 +181,7 @@ namespace BoatSheet
         {
             //this.Text = String.Format("Electronic Boat Sheet - {0} {1}", currBoat.sailTime, currBoat.boatName);
             if(myTab != null)
-                myTab.Text = String.Format("{0} {1}", currBoat.sailTime, currBoat.boatName);
-        }
-
-        private void preSaveValidate()
-        {
-            if (String.IsNullOrEmpty(txt_SailTime.Text))
-            {
-                var prompt = new prompt_SailTime(currBoat);
-                txt_SailTime.Text = currBoat.sailTime;
-                prompt.ShowDialog();
-            }
-            //TODO: Make a universal text prompt and a universal NumericUpDown prompt.
-            /*if (String.IsNullOrEmpty(currBoat.employeeInitials))
-            {
-                var prompt = new prompt_SailTime(currBoat);
-                txt_SailTime.Text = currBoat.sailTime;
-                prompt.ShowDialog();
-            }*/
+                myTab.Text = String.Format("{0} {1}", currBoat.sailTime, currBoat.boatName.ToString());
         }
 
         #endregion
@@ -526,7 +486,7 @@ namespace BoatSheet
 
         private void prd_BoatSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currBoat.determinePrices(sel_BoatSelect.SelectedItem.ToString());
+            currBoat.determinePrices(sel_BoatSelect.SelectedIndex);
 
             bankOutAmt.Value = currBoat.bankOut;
             currBoat.updateTotals();
@@ -762,12 +722,6 @@ namespace BoatSheet
         }
 
         #endregion
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            saveBoat();
-        }
-
 
     }
 }

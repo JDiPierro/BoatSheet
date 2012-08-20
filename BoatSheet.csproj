@@ -83,24 +83,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\WorkDay.cs" />
-    <Compile Include="GUI\Add.cs">
+    <Compile Include="GUI\Manager\ChangePrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Add.Designer.cs">
+    <Compile Include="GUI\Manager\ChangePrice.Designer.cs">
+      <DependentUpon>ChangePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Util\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Util\Add.Designer.cs">
       <DependentUpon>Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Bank.cs" />
-    <Compile Include="GUI\AddCC.cs">
+    <Compile Include="GUI\Util\AddCC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\AddCC.Designer.cs">
+    <Compile Include="GUI\Util\AddCC.Designer.cs">
       <DependentUpon>AddCC.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Boat.cs" />
-    <Compile Include="GUI\Deposit.cs">
+    <Compile Include="GUI\Util\Deposit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Deposit.Designer.cs">
+    <Compile Include="GUI\Util\Deposit.Designer.cs">
       <DependentUpon>Deposit.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\MainForm.cs">
@@ -110,10 +116,10 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="GUI\prompt_SailTime.cs">
+    <Compile Include="GUI\Util\prompt_SailTime.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\prompt_SailTime.Designer.cs">
+    <Compile Include="GUI\Util\prompt_SailTime.Designer.cs">
       <DependentUpon>prompt_SailTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,19 +131,22 @@
     <Compile Include="GUI\BoatPage.Designer.cs">
       <DependentUpon>BoatPage.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GUI\Add.resx">
+    <EmbeddedResource Include="GUI\Manager\ChangePrice.resx">
+      <DependentUpon>ChangePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Util\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\AddCC.resx">
+    <EmbeddedResource Include="GUI\Util\AddCC.resx">
       <DependentUpon>AddCC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Deposit.resx">
+    <EmbeddedResource Include="GUI\Util\Deposit.resx">
       <DependentUpon>Deposit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\prompt_SailTime.resx">
+    <EmbeddedResource Include="GUI\Util\prompt_SailTime.resx">
       <DependentUpon>prompt_SailTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
