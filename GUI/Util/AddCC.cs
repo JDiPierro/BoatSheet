@@ -5,6 +5,17 @@ namespace BoatSheet
 {
     public partial class AddCC : Form
     {
+        public enum NonCashType
+        {
+            AMEX,
+            VISA,
+            MASTERCARD,
+            DISCOVER,
+            DIRECT_BILL,
+            PERSONAL_CHECK,
+            ERROR
+        }
+
         private Boat currBoat;
         private Boat.NonCashAsset card;
 
@@ -44,6 +55,9 @@ namespace BoatSheet
             price_AcrylicAddOn.Text = String.Format("{0:C}", Settings.addOnAcrylVal);
 
             getStartValues();
+
+            if (currBoat.isLocked)
+                toggleLock();
         }
 
         private void getStartValues()
@@ -129,7 +143,14 @@ namespace BoatSheet
             newTotal.Value = card.total;
         }
 
-        
+        private void toggleLock()
+        {
+            allIns.Enabled = !allIns.Enabled;
+            baseOnly.Enabled = !baseOnly.Enabled;
+            numAcrylOnly.Enabled = !numAcrylOnly.Enabled;
+            numAcrylicAddOn.Enabled = !numAcrylicAddOn.Enabled;
+            otherAdd.Enabled = !otherAdd.Enabled;
+        }
 
     }
 }

@@ -75,7 +75,7 @@
             0});
             this.otherAdd.Name = "otherAdd";
             this.otherAdd.Size = new System.Drawing.Size(74, 20);
-            this.otherAdd.TabIndex = 18;
+            this.otherAdd.TabIndex = 5;
             this.otherAdd.ValueChanged += new System.EventHandler(this.otherAdd_ValueChanged);
             // 
             // newTotal
@@ -116,7 +116,7 @@
             this.btnSave.Location = new System.Drawing.Point(106, 186);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(74, 23);
-            this.btnSave.TabIndex = 22;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -126,7 +126,7 @@
             this.allIns.Location = new System.Drawing.Point(107, 28);
             this.allIns.Name = "allIns";
             this.allIns.Size = new System.Drawing.Size(74, 20);
-            this.allIns.TabIndex = 24;
+            this.allIns.TabIndex = 1;
             this.allIns.ValueChanged += new System.EventHandler(this.allIns_ValueChanged);
             // 
             // baseOnly
@@ -134,7 +134,7 @@
             this.baseOnly.Location = new System.Drawing.Point(107, 54);
             this.baseOnly.Name = "baseOnly";
             this.baseOnly.Size = new System.Drawing.Size(74, 20);
-            this.baseOnly.TabIndex = 25;
+            this.baseOnly.TabIndex = 2;
             this.baseOnly.ValueChanged += new System.EventHandler(this.baseOnly_ValueChanged);
             // 
             // price_AllIn
@@ -200,7 +200,7 @@
             this.numAcrylOnly.Location = new System.Drawing.Point(106, 80);
             this.numAcrylOnly.Name = "numAcrylOnly";
             this.numAcrylOnly.Size = new System.Drawing.Size(74, 20);
-            this.numAcrylOnly.TabIndex = 30;
+            this.numAcrylOnly.TabIndex = 3;
             this.numAcrylOnly.ValueChanged += new System.EventHandler(this.numAcrylOnly_ValueChanged);
             // 
             // lbl_AcrylicAddOn
@@ -227,7 +227,7 @@
             this.numAcrylicAddOn.Location = new System.Drawing.Point(107, 106);
             this.numAcrylicAddOn.Name = "numAcrylicAddOn";
             this.numAcrylicAddOn.Size = new System.Drawing.Size(74, 20);
-            this.numAcrylicAddOn.TabIndex = 33;
+            this.numAcrylicAddOn.TabIndex = 4;
             this.numAcrylicAddOn.ValueChanged += new System.EventHandler(this.numAcrylicAddOn_ValueChanged);
             // 
             // AddCC

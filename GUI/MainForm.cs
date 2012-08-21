@@ -15,8 +15,6 @@ namespace BoatSheet
         {
             InitializeComponent();
             Startup();
-
-            today = new WorkDay();
         }
 
         public void Startup()
@@ -24,37 +22,77 @@ namespace BoatSheet
             //Check if Settings file exists...
                 //Yes: Load settings from file
                 //No: Make new Settings file with defaults
+
+            string defaultFilePath = Settings.defaultSaveLoc + "\\LG Daily Worksheets\\";
+            loadToday(ref defaultFilePath);
+            updateLockButton();
+        }
+
+        private void loadToday(ref string defaultFilePath)
+        {
             //Check if a file exists for Today in the default save path (Loaded from Settings file)
-                //Yes: Load it
-                //No: Make a new Day file and open a new boat tab.
+            if (System.IO.Directory.Exists(defaultFilePath))
+            {
+                defaultFilePath = defaultFilePath + DateTime.Today.ToString("yyyy-MM-dd.day");
+                if (System.IO.File.Exists(defaultFilePath))
+                {
+                    //Yes: Load the day
+                    today = Serializer.DeSerializeDay(defaultFilePath);
+                    today.myFile = defaultFilePath;
+
+                    int loadedBoats = today.dailyBoats.Count;
+                    for (int i = 0; i < loadedBoats; i++)
+                    {
+                        LoadDay_NewTab(today.dailyBoats[i]);
+                    }
+                }
+                else
+                {
+                    //No: Make a new day and save it.
+                    today = new WorkDay();
+                    today.myFile = defaultFilePath;
+                    today.saveDay();
+                }
+            }
+            else
+            {
+                System.IO.Directory.CreateDirectory(defaultFilePath);
+                //Yaay recursive :D
+                loadToday(ref defaultFilePath);
+            }
         }
 
         //EVENT
         private void Event_NewTab(object sender, EventArgs e)
         {
-            var objSender = (ToolStripMenuItem)sender;
-
-
-            if (objSender == menu_LoadBoat)
+            try
             {
-                OpenFileDialog fld = new OpenFileDialog();
-                fld.AddExtension = true;
-                if (today.myFile == null)
-                    fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                else
-                    fld.InitialDirectory = today.myFile;
-                fld.DefaultExt = "boat";
-                fld.Filter = "Boat Data (*.boat)|*.boat|All files (*.*)|*.*";
-
-                string loc;
-                if (fld.ShowDialog() == DialogResult.OK)
+                var objSender = (ToolStripMenuItem)sender;
+                if (objSender == menu_LoadBoat)
                 {
-                    loc = fld.FileName;
-                    BoatPage page = newTab();
-                    page.loadBoat(loc);
+                    OpenFileDialog fld = new OpenFileDialog();
+                    fld.AddExtension = true;
+                    if (today.myFile == null)
+                        fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    else
+                        fld.InitialDirectory = today.myFile;
+                    fld.DefaultExt = "boat";
+                    fld.Filter = "Boat Data (*.boat)|*.boat|All files (*.*)|*.*";
+
+                    string loc;
+                    if (fld.ShowDialog() == DialogResult.OK)
+                    {
+                        loc = fld.FileName;
+                        BoatPage page = newTab();
+                        page.loadBoat(loc);
+                    }
+                }
+                else
+                {
+                    newTab();
                 }
             }
-            else
+            catch
             {
                 newTab();
             }
@@ -107,7 +145,7 @@ namespace BoatSheet
             tab.Controls.Add(page);
 
             tabControl.TabPages.Add(tab);
-            tabControl.SelectedIndex++;
+            tabControl.SelectedIndex = tabControl.TabPages.IndexOf(tab);
 
             return page;
         }
@@ -166,6 +204,7 @@ namespace BoatSheet
             {
                 today.saveDay();
             }
+            updateLockButton();
         }
 
         private void exit(object sender, EventArgs e)
@@ -175,14 +214,54 @@ namespace BoatSheet
 
         private void DeleteBoat_Click(object sender, EventArgs e)
         {
-            TabPage deleteThis = tabControl.SelectedTab;
+            if (tabControl.TabPages.Count > 0)
+            {
+                TabPage deleteThis = tabControl.SelectedTab;
 
-            BoatPage page = (BoatPage)deleteThis.Controls[0];
+                BoatPage page = (BoatPage) deleteThis.Controls[0];
 
-            today.dailyBoats.Remove(page.currBoat);
+                if (!page.currBoat.isLocked)
+                {
+                    today.dailyBoats.Remove(page.currBoat);
 
-            tabControl.SelectedIndex++;
-            tabControl.TabPages.Remove(deleteThis);
+                    if (tabControl.SelectedIndex == tabControl.TabCount - 1)
+                        tabControl.SelectedIndex--;
+                    else
+                        tabControl.SelectedIndex++;
+                    tabControl.TabPages.Remove(deleteThis);
+                }
+                else
+                {
+                    MessageBox.Show("Please unlock the boat before deleting it.");
+                }
+            }
+        }
+
+        private void LockBoat_Click(object sender, EventArgs e)
+        {
+            var currPage = (BoatPage)tabControl.TabPages[tabControl.SelectedIndex].Controls[0];
+
+            currPage.toggleBoatLock(false);
+
+            updateLockButton();
+            today.saveDay();
+        }
+
+        private void updateLockButton()
+        {
+            var currPage = (BoatPage)tabControl.SelectedTab.Controls[0];
+            if (currPage.currBoat.isLocked)
+            {
+                btnLockBoat.Text = "Unlock Boat";
+            }
+            else btnLockBoat.Text = "Lock Boat";
+        }
+
+        private void btnSavePic_Click(object sender, EventArgs e)
+        {
+            var currPage = (BoatPage)tabControl.SelectedTab.Controls[0];
+
+            currPage.savePicture();
         }
     }
 }

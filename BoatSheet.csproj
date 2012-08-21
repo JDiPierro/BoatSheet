@@ -83,6 +83,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\WorkDay.cs" />
+    <Compile Include="GUI\DailyWorksheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\DailyWorksheet.Designer.cs">
+      <DependentUpon>DailyWorksheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Manager\ChangePrice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     <Compile Include="GUI\BoatPage.Designer.cs">
       <DependentUpon>BoatPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\DailyWorksheet.resx">
+      <DependentUpon>DailyWorksheet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Manager\ChangePrice.resx">
       <DependentUpon>ChangePrice.cs</DependentUpon>
     </EmbeddedResource>

@@ -82,6 +82,8 @@ namespace BoatSheet
         public string notes;
         public string employeeInitials;
 
+        public bool isLocked;
+
         public Boat()
         {
             clearBoat();
@@ -158,6 +160,8 @@ namespace BoatSheet
 
             notes = info.GetString("notes");
             employeeInitials = info.GetString("employeeInitials");
+
+            isLocked = info.GetBoolean("isLocked");
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
@@ -214,6 +218,8 @@ namespace BoatSheet
 
             info.AddValue("notes", notes);
             info.AddValue("employeeInitials", employeeInitials);
+
+            info.AddValue("isLocked", isLocked);
         }
 
         #endregion
@@ -238,6 +244,16 @@ namespace BoatSheet
             }
             otherValue = 0.0m;
             updateTotals();
+        }
+
+        public void lockBoat()
+        {
+            isLocked = true;
+        }
+
+        public void unlockBoat()
+        {
+            isLocked = false;
         }
 
         public void determinePrices(boatType inBoat)
@@ -315,6 +331,7 @@ namespace BoatSheet
             personalCheck = new NonCashAsset();
 
             notes = String.Empty;
+            isLocked = false;
         }
 
         /*********************UPDATE LOGIC***************/

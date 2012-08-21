@@ -12,6 +12,8 @@ namespace BoatSheet
             ACRYLIC_ADDON,
         }
 
+        //TODO: ALL VARIABLES MUST BE INSTANTIATED INSIDE THE CONSTURCTOR FOR SERIALZIATION.
+
         public static decimal saintAllInVal = 37.45m;
         public static decimal saintBaseVal = 26.75m;
         public static decimal saintAcrylOnlyVal = 32.10m;
@@ -23,6 +25,8 @@ namespace BoatSheet
         public static decimal addOnAcrylVal = 10.70m;
 
         public static string lastSaveLoc = String.Empty;
+
+        public static string defaultSaveLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         public static void setPrice(Boat.boatType boat, packageType package, decimal price)
         {

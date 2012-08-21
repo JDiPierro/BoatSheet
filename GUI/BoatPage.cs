@@ -24,7 +24,7 @@ namespace BoatSheet
 
         #region Utils
 
-        private void btnSaveScreen_Click(object sender, EventArgs e)
+        public void savePicture()
         {
             using (var bmp = new Bitmap(Width, Height))
             {
@@ -35,9 +35,9 @@ namespace BoatSheet
                     fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 else
                     fld.InitialDirectory = lastSaveLoc;
-                fld.FileName = String.Format("{0} {1} {2}", currBoat.sailTime,
+                fld.FileName = String.Format("{2} {1} {0}", currBoat.sailTime,
                                                 currBoat.boatName,
-                                                currBoat.date.ToString("MM.dd.yyyy"));
+                                                currBoat.date.ToString("yyyy.MM.dd"));
                 fld.DefaultExt = "jpg";
                 fld.Filter = "Jpeg images (*.jpg)|*.jpg|All files (*.*)|*.*";
 
@@ -104,6 +104,11 @@ namespace BoatSheet
 
             updatePkgDisplay();
             refreshCCs();
+
+            if(currBoat.isLocked)
+            {
+                toggleBoatLock(true);
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -706,6 +711,87 @@ namespace BoatSheet
                 currBoat.sailTime = txt_SailTime.Text;
                 setName();
             }
+        }
+
+        public void toggleBoatLock(bool fromLoad)
+        {
+            if(!fromLoad)
+                currBoat.isLocked = !currBoat.isLocked;
+
+            sel_BoatSelect.Enabled = !sel_BoatSelect.Enabled;
+            txt_SailTime.Enabled = !txt_SailTime.Enabled;
+            if(cbx_ovrBankOut.Checked)
+            {
+                cbx_ovrBankOut.Enabled = !cbx_ovrBankOut.Enabled;
+                bankOutAmt.Enabled = !bankOutAmt.Enabled;
+            }
+            else
+            {
+                cbx_ovrBankOut.Enabled = !cbx_ovrBankOut.Enabled;
+            }
+            pkgsOut.Enabled = !pkgsOut.Enabled;
+            pkgsNotViewed.Enabled = !pkgsNotViewed.Enabled;
+            pkgsViewedNS.Enabled = !pkgsViewedNS.Enabled;
+
+            count_clicker.Enabled = !count_clicker.Enabled;
+            count_labtech.Enabled = !count_labtech.Enabled;
+            count_PAX.Enabled = !count_PAX.Enabled;
+
+            if(cbxAllInOver.Checked)
+            {
+                cbxAllInOver.Enabled = !cbxAllInOver.Enabled;
+                prd_AllIn.Enabled = !prd_AllIn.Enabled;
+            }
+            else
+            {
+                cbxAllInOver.Enabled = !cbxAllInOver.Enabled;
+            }
+
+            prd_Base.Enabled = !prd_Base.Enabled;
+            prd_Acrylic.Enabled = !prd_Acrylic.Enabled;
+            prd_ReprintAllIn.Enabled = !prd_ReprintAllIn.Enabled;
+            prd_ReprintBase.Enabled = !prd_ReprintBase.Enabled;
+
+            prd_AcrylAdd.Enabled = !prd_AcrylAdd.Enabled;
+
+            bkI_Ones.Enabled = !bkI_Ones.Enabled;
+            bkI_Fives.Enabled = !bkI_Fives.Enabled;
+            bkI_Tens.Enabled = !bkI_Tens.Enabled;
+            bkI_Twenties.Enabled = !bkI_Twenties.Enabled;
+            bkI_Fifties.Enabled = !bkI_Fifties.Enabled;
+            bkI_Hundreds.Enabled = !bkI_Hundreds.Enabled;
+
+            bkI_Ls_Quarters.Enabled = !bkI_Ls_Quarters.Enabled;
+            bkI_Rl_Quarters.Enabled = !bkI_Rl_Quarters.Enabled;
+            bkI_Ls_Dimes.Enabled = !bkI_Ls_Dimes.Enabled;
+            bkI_Rl_Dimes.Enabled = !bkI_Rl_Dimes.Enabled;
+            bkI_Ls_Nickels.Enabled = !bkI_Ls_Nickels.Enabled;
+            bkI_Rl_Nickels.Enabled = !bkI_Rl_Nickels.Enabled;
+            bkI_Ls_Pennies.Enabled = !bkI_Ls_Pennies.Enabled;
+            bkI_Rl_Pennies.Enabled = !bkI_Rl_Pennies.Enabled;
+
+            if(cbxCashOverride.Checked)
+            {
+                cbxCashOverride.Enabled = !cbxCashOverride.Enabled;
+                lbl_CashOnHand.Enabled = !lbl_CashOnHand.Enabled;
+            }
+            else cbxCashOverride.Enabled = !cbxCashOverride.Enabled;
+
+            txt_Initials.Enabled = !txt_Initials.Enabled;
+
+            //Add Buttons for Bank In:
+            add_bkI_1.Enabled = !add_bkI_1.Enabled;
+            add_bkI_5.Enabled = !add_bkI_5.Enabled;
+            add_bkI_10.Enabled = !add_bkI_10.Enabled;
+            add_bkI_20.Enabled = !add_bkI_20.Enabled;
+            add_bkI_50.Enabled = !add_bkI_50.Enabled;
+            add_bkI_100.Enabled = !add_bkI_100.Enabled;
+
+            add_bkI_Ls_Q.Enabled = !add_bkI_Ls_Q.Enabled;
+            add_bkI_Ls_D.Enabled = !add_bkI_Ls_D.Enabled;
+            add_bkI_Ls_N.Enabled = !add_bkI_Ls_N.Enabled;
+            add_bkI_Ls_P.Enabled = !add_bkI_Ls_P.Enabled;
+            //Leave the CC and deposit buttons enabled so you can check the values.
         }
 
     }

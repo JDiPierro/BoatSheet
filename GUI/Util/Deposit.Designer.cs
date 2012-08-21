@@ -29,40 +29,28 @@
         private void InitializeComponent()
         {
             this.grp_BillsIn = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.add_dep_100 = new System.Windows.Forms.Button();
+            this.dep_Total = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.add_dep_50 = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.dep_Hundreds = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
-            this.add_dep_20 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.dep_Twenties = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
-            this.add_dep_10 = new System.Windows.Forms.Button();
             this.dep_Tens = new System.Windows.Forms.NumericUpDown();
             this.dep_Fifties = new System.Windows.Forms.NumericUpDown();
-            this.add_dep_5 = new System.Windows.Forms.Button();
-            this.add_dep_1 = new System.Windows.Forms.Button();
             this.dep_Fives = new System.Windows.Forms.NumericUpDown();
             this.dep_Ones = new System.Windows.Forms.NumericUpDown();
+            this.btnSave = new System.Windows.Forms.Button();
             this.grp_CoinsIn = new System.Windows.Forms.GroupBox();
-            this.add_dep_Rl_P = new System.Windows.Forms.Button();
-            this.add_dep_Ls_P = new System.Windows.Forms.Button();
             this.dep_Rl_Pennies = new System.Windows.Forms.NumericUpDown();
             this.dep_Ls_Pennies = new System.Windows.Forms.NumericUpDown();
-            this.add_dep_Rl_N = new System.Windows.Forms.Button();
-            this.add_dep_Ls_N = new System.Windows.Forms.Button();
             this.dep_Ls_Nickels = new System.Windows.Forms.NumericUpDown();
-            this.add_dep_Rl_D = new System.Windows.Forms.Button();
             this.dep_Rl_Dimes = new System.Windows.Forms.NumericUpDown();
-            this.add_dep_Ls_D = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
-            this.add_dep_Rl_Q = new System.Windows.Forms.Button();
             this.dep_Rl_Nickels = new System.Windows.Forms.NumericUpDown();
-            this.add_dep_Ls_Q = new System.Windows.Forms.Button();
             this.dep_Ls_Dimes = new System.Windows.Forms.NumericUpDown();
             this.label38 = new System.Windows.Forms.Label();
             this.dep_Rl_Quarters = new System.Windows.Forms.NumericUpDown();
@@ -78,6 +66,8 @@
             this.label43 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.next_Total = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -113,10 +103,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.disp_cashToPull = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.dep_Total = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.next_Total = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.grp_BillsIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dep_Hundreds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dep_Twenties)).BeginInit();
@@ -155,49 +141,44 @@
             // 
             this.grp_BillsIn.Controls.Add(this.dep_Total);
             this.grp_BillsIn.Controls.Add(this.label21);
-            this.grp_BillsIn.Controls.Add(this.add_dep_100);
             this.grp_BillsIn.Controls.Add(this.label30);
             this.grp_BillsIn.Controls.Add(this.label29);
-            this.grp_BillsIn.Controls.Add(this.add_dep_50);
             this.grp_BillsIn.Controls.Add(this.label28);
             this.grp_BillsIn.Controls.Add(this.dep_Hundreds);
             this.grp_BillsIn.Controls.Add(this.label27);
-            this.grp_BillsIn.Controls.Add(this.add_dep_20);
             this.grp_BillsIn.Controls.Add(this.label26);
             this.grp_BillsIn.Controls.Add(this.dep_Twenties);
             this.grp_BillsIn.Controls.Add(this.label25);
-            this.grp_BillsIn.Controls.Add(this.add_dep_10);
             this.grp_BillsIn.Controls.Add(this.dep_Tens);
             this.grp_BillsIn.Controls.Add(this.dep_Fifties);
-            this.grp_BillsIn.Controls.Add(this.add_dep_5);
-            this.grp_BillsIn.Controls.Add(this.add_dep_1);
             this.grp_BillsIn.Controls.Add(this.dep_Fives);
             this.grp_BillsIn.Controls.Add(this.dep_Ones);
             this.grp_BillsIn.Location = new System.Drawing.Point(12, 12);
             this.grp_BillsIn.Name = "grp_BillsIn";
             this.grp_BillsIn.Size = new System.Drawing.Size(179, 295);
-            this.grp_BillsIn.TabIndex = 39;
+            this.grp_BillsIn.TabIndex = 1;
             this.grp_BillsIn.TabStop = false;
             this.grp_BillsIn.Text = "Bills:";
             // 
-            // btnSave
+            // dep_Total
             // 
-            this.btnSave.Location = new System.Drawing.Point(621, 311);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 85;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.dep_Total.AutoSize = true;
+            this.dep_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dep_Total.Location = new System.Drawing.Point(60, 268);
+            this.dep_Total.Name = "dep_Total";
+            this.dep_Total.Size = new System.Drawing.Size(60, 24);
+            this.dep_Total.TabIndex = 89;
+            this.dep_Total.Text = "$0.00";
             // 
-            // add_dep_100
+            // label21
             // 
-            this.add_dep_100.Location = new System.Drawing.Point(147, 235);
-            this.add_dep_100.Name = "add_dep_100";
-            this.add_dep_100.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_100.TabIndex = 82;
-            this.add_dep_100.Text = "+";
-            this.add_dep_100.UseVisualStyleBackColor = true;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label21.Location = new System.Drawing.Point(6, 271);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(48, 20);
+            this.label21.TabIndex = 88;
+            this.label21.Text = "Total:";
             // 
             // label30
             // 
@@ -219,15 +200,6 @@
             this.label29.TabIndex = 28;
             this.label29.Text = "Fives:";
             // 
-            // add_dep_50
-            // 
-            this.add_dep_50.Location = new System.Drawing.Point(147, 196);
-            this.add_dep_50.Name = "add_dep_50";
-            this.add_dep_50.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_50.TabIndex = 81;
-            this.add_dep_50.Text = "+";
-            this.add_dep_50.UseVisualStyleBackColor = true;
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -248,7 +220,7 @@
             0});
             this.dep_Hundreds.Name = "dep_Hundreds";
             this.dep_Hundreds.Size = new System.Drawing.Size(74, 20);
-            this.dep_Hundreds.TabIndex = 29;
+            this.dep_Hundreds.TabIndex = 6;
             this.dep_Hundreds.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
             // 
             // label27
@@ -260,15 +232,6 @@
             this.label27.Size = new System.Drawing.Size(62, 13);
             this.label27.TabIndex = 32;
             this.label27.Text = "Twenties:";
-            // 
-            // add_dep_20
-            // 
-            this.add_dep_20.Location = new System.Drawing.Point(147, 157);
-            this.add_dep_20.Name = "add_dep_20";
-            this.add_dep_20.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_20.TabIndex = 80;
-            this.add_dep_20.Text = "+";
-            this.add_dep_20.UseVisualStyleBackColor = true;
             // 
             // label26
             // 
@@ -290,7 +253,7 @@
             0});
             this.dep_Twenties.Name = "dep_Twenties";
             this.dep_Twenties.Size = new System.Drawing.Size(74, 20);
-            this.dep_Twenties.TabIndex = 27;
+            this.dep_Twenties.TabIndex = 4;
             this.dep_Twenties.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
             // 
             // label25
@@ -303,15 +266,6 @@
             this.label25.TabIndex = 36;
             this.label25.Text = "Hundreds:";
             // 
-            // add_dep_10
-            // 
-            this.add_dep_10.Location = new System.Drawing.Point(147, 115);
-            this.add_dep_10.Name = "add_dep_10";
-            this.add_dep_10.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_10.TabIndex = 79;
-            this.add_dep_10.Text = "+";
-            this.add_dep_10.UseVisualStyleBackColor = true;
-            // 
             // dep_Tens
             // 
             this.dep_Tens.Location = new System.Drawing.Point(67, 115);
@@ -322,7 +276,7 @@
             0});
             this.dep_Tens.Name = "dep_Tens";
             this.dep_Tens.Size = new System.Drawing.Size(74, 20);
-            this.dep_Tens.TabIndex = 26;
+            this.dep_Tens.TabIndex = 3;
             this.dep_Tens.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
             // 
             // dep_Fifties
@@ -335,26 +289,8 @@
             0});
             this.dep_Fifties.Name = "dep_Fifties";
             this.dep_Fifties.Size = new System.Drawing.Size(74, 20);
-            this.dep_Fifties.TabIndex = 28;
+            this.dep_Fifties.TabIndex = 5;
             this.dep_Fifties.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
-            // 
-            // add_dep_5
-            // 
-            this.add_dep_5.Location = new System.Drawing.Point(147, 76);
-            this.add_dep_5.Name = "add_dep_5";
-            this.add_dep_5.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_5.TabIndex = 78;
-            this.add_dep_5.Text = "+";
-            this.add_dep_5.UseVisualStyleBackColor = true;
-            // 
-            // add_dep_1
-            // 
-            this.add_dep_1.Location = new System.Drawing.Point(147, 37);
-            this.add_dep_1.Name = "add_dep_1";
-            this.add_dep_1.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_1.TabIndex = 75;
-            this.add_dep_1.Text = "+";
-            this.add_dep_1.UseVisualStyleBackColor = true;
             // 
             // dep_Fives
             // 
@@ -366,7 +302,7 @@
             0});
             this.dep_Fives.Name = "dep_Fives";
             this.dep_Fives.Size = new System.Drawing.Size(74, 20);
-            this.dep_Fives.TabIndex = 25;
+            this.dep_Fives.TabIndex = 2;
             this.dep_Fives.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
             // 
             // dep_Ones
@@ -379,25 +315,27 @@
             0});
             this.dep_Ones.Name = "dep_Ones";
             this.dep_Ones.Size = new System.Drawing.Size(74, 20);
-            this.dep_Ones.TabIndex = 24;
+            this.dep_Ones.TabIndex = 1;
             this.dep_Ones.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(621, 311);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 15;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // grp_CoinsIn
             // 
-            this.grp_CoinsIn.Controls.Add(this.add_dep_Rl_P);
-            this.grp_CoinsIn.Controls.Add(this.add_dep_Ls_P);
             this.grp_CoinsIn.Controls.Add(this.dep_Rl_Pennies);
             this.grp_CoinsIn.Controls.Add(this.dep_Ls_Pennies);
-            this.grp_CoinsIn.Controls.Add(this.add_dep_Rl_N);
-            this.grp_CoinsIn.Controls.Add(this.add_dep_Ls_N);
             this.grp_CoinsIn.Controls.Add(this.dep_Ls_Nickels);
-            this.grp_CoinsIn.Controls.Add(this.add_dep_Rl_D);
             this.grp_CoinsIn.Controls.Add(this.dep_Rl_Dimes);
-            this.grp_CoinsIn.Controls.Add(this.add_dep_Ls_D);
             this.grp_CoinsIn.Controls.Add(this.label39);
-            this.grp_CoinsIn.Controls.Add(this.add_dep_Rl_Q);
             this.grp_CoinsIn.Controls.Add(this.dep_Rl_Nickels);
-            this.grp_CoinsIn.Controls.Add(this.add_dep_Ls_Q);
             this.grp_CoinsIn.Controls.Add(this.dep_Ls_Dimes);
             this.grp_CoinsIn.Controls.Add(this.label38);
             this.grp_CoinsIn.Controls.Add(this.dep_Rl_Quarters);
@@ -415,27 +353,9 @@
             this.grp_CoinsIn.Location = new System.Drawing.Point(197, 12);
             this.grp_CoinsIn.Name = "grp_CoinsIn";
             this.grp_CoinsIn.Size = new System.Drawing.Size(179, 295);
-            this.grp_CoinsIn.TabIndex = 38;
+            this.grp_CoinsIn.TabIndex = 2;
             this.grp_CoinsIn.TabStop = false;
             this.grp_CoinsIn.Text = "Coins:";
-            // 
-            // add_dep_Rl_P
-            // 
-            this.add_dep_Rl_P.Location = new System.Drawing.Point(142, 253);
-            this.add_dep_Rl_P.Name = "add_dep_Rl_P";
-            this.add_dep_Rl_P.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_Rl_P.TabIndex = 77;
-            this.add_dep_Rl_P.Text = "+";
-            this.add_dep_Rl_P.UseVisualStyleBackColor = true;
-            // 
-            // add_dep_Ls_P
-            // 
-            this.add_dep_Ls_P.Location = new System.Drawing.Point(142, 228);
-            this.add_dep_Ls_P.Name = "add_dep_Ls_P";
-            this.add_dep_Ls_P.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_Ls_P.TabIndex = 76;
-            this.add_dep_Ls_P.Text = "+";
-            this.add_dep_Ls_P.UseVisualStyleBackColor = true;
             // 
             // dep_Rl_Pennies
             // 
@@ -447,7 +367,7 @@
             0});
             this.dep_Rl_Pennies.Name = "dep_Rl_Pennies";
             this.dep_Rl_Pennies.Size = new System.Drawing.Size(74, 20);
-            this.dep_Rl_Pennies.TabIndex = 23;
+            this.dep_Rl_Pennies.TabIndex = 14;
             this.dep_Rl_Pennies.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
             // 
             // dep_Ls_Pennies
@@ -460,26 +380,8 @@
             0});
             this.dep_Ls_Pennies.Name = "dep_Ls_Pennies";
             this.dep_Ls_Pennies.Size = new System.Drawing.Size(74, 20);
-            this.dep_Ls_Pennies.TabIndex = 22;
+            this.dep_Ls_Pennies.TabIndex = 13;
             this.dep_Ls_Pennies.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
-            // 
-            // add_dep_Rl_N
-            // 
-            this.add_dep_Rl_N.Location = new System.Drawing.Point(142, 189);
-            this.add_dep_Rl_N.Name = "add_dep_Rl_N";
-            this.add_dep_Rl_N.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_Rl_N.TabIndex = 74;
-            this.add_dep_Rl_N.Text = "+";
-            this.add_dep_Rl_N.UseVisualStyleBackColor = true;
-            // 
-            // add_dep_Ls_N
-            // 
-            this.add_dep_Ls_N.Location = new System.Drawing.Point(142, 164);
-            this.add_dep_Ls_N.Name = "add_dep_Ls_N";
-            this.add_dep_Ls_N.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_Ls_N.TabIndex = 73;
-            this.add_dep_Ls_N.Text = "+";
-            this.add_dep_Ls_N.UseVisualStyleBackColor = true;
             // 
             // dep_Ls_Nickels
             // 
@@ -491,17 +393,8 @@
             0});
             this.dep_Ls_Nickels.Name = "dep_Ls_Nickels";
             this.dep_Ls_Nickels.Size = new System.Drawing.Size(74, 20);
-            this.dep_Ls_Nickels.TabIndex = 20;
+            this.dep_Ls_Nickels.TabIndex = 11;
             this.dep_Ls_Nickels.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
-            // 
-            // add_dep_Rl_D
-            // 
-            this.add_dep_Rl_D.Location = new System.Drawing.Point(142, 122);
-            this.add_dep_Rl_D.Name = "add_dep_Rl_D";
-            this.add_dep_Rl_D.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_Rl_D.TabIndex = 72;
-            this.add_dep_Rl_D.Text = "+";
-            this.add_dep_Rl_D.UseVisualStyleBackColor = true;
             // 
             // dep_Rl_Dimes
             // 
@@ -513,17 +406,8 @@
             0});
             this.dep_Rl_Dimes.Name = "dep_Rl_Dimes";
             this.dep_Rl_Dimes.Size = new System.Drawing.Size(74, 20);
-            this.dep_Rl_Dimes.TabIndex = 19;
+            this.dep_Rl_Dimes.TabIndex = 10;
             this.dep_Rl_Dimes.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
-            // 
-            // add_dep_Ls_D
-            // 
-            this.add_dep_Ls_D.Location = new System.Drawing.Point(142, 99);
-            this.add_dep_Ls_D.Name = "add_dep_Ls_D";
-            this.add_dep_Ls_D.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_Ls_D.TabIndex = 71;
-            this.add_dep_Ls_D.Text = "+";
-            this.add_dep_Ls_D.UseVisualStyleBackColor = true;
             // 
             // label39
             // 
@@ -535,15 +419,6 @@
             this.label39.TabIndex = 11;
             this.label39.Text = "Nickels:";
             // 
-            // add_dep_Rl_Q
-            // 
-            this.add_dep_Rl_Q.Location = new System.Drawing.Point(142, 58);
-            this.add_dep_Rl_Q.Name = "add_dep_Rl_Q";
-            this.add_dep_Rl_Q.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_Rl_Q.TabIndex = 70;
-            this.add_dep_Rl_Q.Text = "+";
-            this.add_dep_Rl_Q.UseVisualStyleBackColor = true;
-            // 
             // dep_Rl_Nickels
             // 
             this.dep_Rl_Nickels.Location = new System.Drawing.Point(62, 187);
@@ -554,17 +429,8 @@
             0});
             this.dep_Rl_Nickels.Name = "dep_Rl_Nickels";
             this.dep_Rl_Nickels.Size = new System.Drawing.Size(74, 20);
-            this.dep_Rl_Nickels.TabIndex = 21;
+            this.dep_Rl_Nickels.TabIndex = 12;
             this.dep_Rl_Nickels.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
-            // 
-            // add_dep_Ls_Q
-            // 
-            this.add_dep_Ls_Q.Location = new System.Drawing.Point(142, 32);
-            this.add_dep_Ls_Q.Name = "add_dep_Ls_Q";
-            this.add_dep_Ls_Q.Size = new System.Drawing.Size(20, 20);
-            this.add_dep_Ls_Q.TabIndex = 69;
-            this.add_dep_Ls_Q.Text = "+";
-            this.add_dep_Ls_Q.UseVisualStyleBackColor = true;
             // 
             // dep_Ls_Dimes
             // 
@@ -576,7 +442,7 @@
             0});
             this.dep_Ls_Dimes.Name = "dep_Ls_Dimes";
             this.dep_Ls_Dimes.Size = new System.Drawing.Size(74, 20);
-            this.dep_Ls_Dimes.TabIndex = 18;
+            this.dep_Ls_Dimes.TabIndex = 9;
             this.dep_Ls_Dimes.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
             // 
             // label38
@@ -598,7 +464,7 @@
             0});
             this.dep_Rl_Quarters.Name = "dep_Rl_Quarters";
             this.dep_Rl_Quarters.Size = new System.Drawing.Size(74, 20);
-            this.dep_Rl_Quarters.TabIndex = 17;
+            this.dep_Rl_Quarters.TabIndex = 8;
             this.dep_Rl_Quarters.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
             // 
             // label37
@@ -620,7 +486,7 @@
             0});
             this.dep_Ls_Quarters.Name = "dep_Ls_Quarters";
             this.dep_Ls_Quarters.Size = new System.Drawing.Size(74, 20);
-            this.dep_Ls_Quarters.TabIndex = 16;
+            this.dep_Ls_Quarters.TabIndex = 7;
             this.dep_Ls_Quarters.ValueChanged += new System.EventHandler(this.cash_ValueChanged);
             // 
             // label31
@@ -729,6 +595,26 @@
             this.groupBox1.TabIndex = 84;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Next Bank:";
+            // 
+            // next_Total
+            // 
+            this.next_Total.AutoSize = true;
+            this.next_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.next_Total.Location = new System.Drawing.Point(60, 265);
+            this.next_Total.Name = "next_Total";
+            this.next_Total.Size = new System.Drawing.Size(60, 24);
+            this.next_Total.TabIndex = 91;
+            this.next_Total.Text = "$0.00";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label23.Location = new System.Drawing.Point(6, 268);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(48, 20);
+            this.label23.TabIndex = 90;
+            this.label23.Text = "Total:";
             // 
             // label1
             // 
@@ -1132,46 +1018,6 @@
             this.label19.TabIndex = 86;
             this.label19.Text = "Cash Sales:";
             // 
-            // dep_Total
-            // 
-            this.dep_Total.AutoSize = true;
-            this.dep_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dep_Total.Location = new System.Drawing.Point(60, 268);
-            this.dep_Total.Name = "dep_Total";
-            this.dep_Total.Size = new System.Drawing.Size(60, 24);
-            this.dep_Total.TabIndex = 89;
-            this.dep_Total.Text = "$0.00";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label21.Location = new System.Drawing.Point(6, 271);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 20);
-            this.label21.TabIndex = 88;
-            this.label21.Text = "Total:";
-            // 
-            // next_Total
-            // 
-            this.next_Total.AutoSize = true;
-            this.next_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.next_Total.Location = new System.Drawing.Point(60, 265);
-            this.next_Total.Name = "next_Total";
-            this.next_Total.Size = new System.Drawing.Size(60, 24);
-            this.next_Total.TabIndex = 91;
-            this.next_Total.Text = "$0.00";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label23.Location = new System.Drawing.Point(6, 268);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(48, 20);
-            this.label23.TabIndex = 90;
-            this.label23.Text = "Total:";
-            // 
             // Deposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1231,39 +1077,25 @@
 
         private System.Windows.Forms.GroupBox grp_BillsIn;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button add_dep_100;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button add_dep_50;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.NumericUpDown dep_Hundreds;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button add_dep_20;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.NumericUpDown dep_Twenties;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Button add_dep_10;
         private System.Windows.Forms.NumericUpDown dep_Tens;
         private System.Windows.Forms.NumericUpDown dep_Fifties;
-        private System.Windows.Forms.Button add_dep_5;
-        private System.Windows.Forms.Button add_dep_1;
         private System.Windows.Forms.NumericUpDown dep_Fives;
         private System.Windows.Forms.NumericUpDown dep_Ones;
         private System.Windows.Forms.GroupBox grp_CoinsIn;
-        private System.Windows.Forms.Button add_dep_Rl_P;
-        private System.Windows.Forms.Button add_dep_Ls_P;
         private System.Windows.Forms.NumericUpDown dep_Rl_Pennies;
         private System.Windows.Forms.NumericUpDown dep_Ls_Pennies;
-        private System.Windows.Forms.Button add_dep_Rl_N;
-        private System.Windows.Forms.Button add_dep_Ls_N;
         private System.Windows.Forms.NumericUpDown dep_Ls_Nickels;
-        private System.Windows.Forms.Button add_dep_Rl_D;
         private System.Windows.Forms.NumericUpDown dep_Rl_Dimes;
-        private System.Windows.Forms.Button add_dep_Ls_D;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Button add_dep_Rl_Q;
         private System.Windows.Forms.NumericUpDown dep_Rl_Nickels;
-        private System.Windows.Forms.Button add_dep_Ls_Q;
         private System.Windows.Forms.NumericUpDown dep_Ls_Dimes;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.NumericUpDown dep_Rl_Quarters;

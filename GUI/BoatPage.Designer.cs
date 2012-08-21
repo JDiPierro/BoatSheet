@@ -65,22 +65,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
             this.txt_SailTime = new System.Windows.Forms.TextBox();
-            this.btnSaveScreen = new System.Windows.Forms.Button();
             this.label61 = new System.Windows.Forms.Label();
             this.boatNotes = new System.Windows.Forms.TextBox();
             this.grp_CoinsIn = new System.Windows.Forms.GroupBox();
-            this.add_bkI_Rl_P = new System.Windows.Forms.Button();
             this.add_bkI_Ls_P = new System.Windows.Forms.Button();
             this.bkI_Rl_Pennies = new System.Windows.Forms.NumericUpDown();
             this.bkI_Ls_Pennies = new System.Windows.Forms.NumericUpDown();
-            this.add_bkI_Rl_N = new System.Windows.Forms.Button();
             this.add_bkI_Ls_N = new System.Windows.Forms.Button();
             this.bkI_Ls_Nickels = new System.Windows.Forms.NumericUpDown();
-            this.add_bkI_Rl_D = new System.Windows.Forms.Button();
             this.bkI_Rl_Dimes = new System.Windows.Forms.NumericUpDown();
             this.add_bkI_Ls_D = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
-            this.add_bkI_Rl_Q = new System.Windows.Forms.Button();
             this.bkI_Rl_Nickels = new System.Windows.Forms.NumericUpDown();
             this.add_bkI_Ls_Q = new System.Windows.Forms.Button();
             this.bkI_Ls_Dimes = new System.Windows.Forms.NumericUpDown();
@@ -172,7 +167,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
             this.grpDeposit.SuspendLayout();
             this.grp_BillsIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bkI_Hundreds)).BeginInit();
@@ -223,7 +217,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label9.Location = new System.Drawing.Point(734, 422);
+            this.label9.Location = new System.Drawing.Point(569, 404);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 20);
             this.label9.TabIndex = 110;
@@ -296,7 +290,7 @@
             // 
             // txt_Initials
             // 
-            this.txt_Initials.Location = new System.Drawing.Point(830, 422);
+            this.txt_Initials.Location = new System.Drawing.Point(665, 404);
             this.txt_Initials.Name = "txt_Initials";
             this.txt_Initials.Size = new System.Drawing.Size(56, 20);
             this.txt_Initials.TabIndex = 111;
@@ -640,20 +634,10 @@
             this.txt_SailTime.TabIndex = 11;
             this.txt_SailTime.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
-            // btnSaveScreen
-            // 
-            this.btnSaveScreen.Location = new System.Drawing.Point(473, 502);
-            this.btnSaveScreen.Name = "btnSaveScreen";
-            this.btnSaveScreen.Size = new System.Drawing.Size(249, 23);
-            this.btnSaveScreen.TabIndex = 103;
-            this.btnSaveScreen.Text = "Save A Picture of this Sheet";
-            this.btnSaveScreen.UseVisualStyleBackColor = true;
-            this.btnSaveScreen.Click += new System.EventHandler(this.btnSaveScreen_Click);
-            // 
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(473, 346);
+            this.label61.Location = new System.Drawing.Point(473, 414);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(38, 13);
             this.label61.TabIndex = 102;
@@ -661,7 +645,7 @@
             // 
             // boatNotes
             // 
-            this.boatNotes.Location = new System.Drawing.Point(473, 362);
+            this.boatNotes.Location = new System.Drawing.Point(473, 430);
             this.boatNotes.Multiline = true;
             this.boatNotes.Name = "boatNotes";
             this.boatNotes.Size = new System.Drawing.Size(249, 102);
@@ -670,18 +654,14 @@
             // 
             // grp_CoinsIn
             // 
-            this.grp_CoinsIn.Controls.Add(this.add_bkI_Rl_P);
             this.grp_CoinsIn.Controls.Add(this.add_bkI_Ls_P);
             this.grp_CoinsIn.Controls.Add(this.bkI_Rl_Pennies);
             this.grp_CoinsIn.Controls.Add(this.bkI_Ls_Pennies);
-            this.grp_CoinsIn.Controls.Add(this.add_bkI_Rl_N);
             this.grp_CoinsIn.Controls.Add(this.add_bkI_Ls_N);
             this.grp_CoinsIn.Controls.Add(this.bkI_Ls_Nickels);
-            this.grp_CoinsIn.Controls.Add(this.add_bkI_Rl_D);
             this.grp_CoinsIn.Controls.Add(this.bkI_Rl_Dimes);
             this.grp_CoinsIn.Controls.Add(this.add_bkI_Ls_D);
             this.grp_CoinsIn.Controls.Add(this.label39);
-            this.grp_CoinsIn.Controls.Add(this.add_bkI_Rl_Q);
             this.grp_CoinsIn.Controls.Add(this.bkI_Rl_Nickels);
             this.grp_CoinsIn.Controls.Add(this.add_bkI_Ls_Q);
             this.grp_CoinsIn.Controls.Add(this.bkI_Ls_Dimes);
@@ -704,16 +684,6 @@
             this.grp_CoinsIn.TabIndex = 96;
             this.grp_CoinsIn.TabStop = false;
             this.grp_CoinsIn.Text = "Coins In:";
-            // 
-            // add_bkI_Rl_P
-            // 
-            this.add_bkI_Rl_P.Location = new System.Drawing.Point(142, 253);
-            this.add_bkI_Rl_P.Name = "add_bkI_Rl_P";
-            this.add_bkI_Rl_P.Size = new System.Drawing.Size(20, 20);
-            this.add_bkI_Rl_P.TabIndex = 77;
-            this.add_bkI_Rl_P.Text = "+";
-            this.add_bkI_Rl_P.UseVisualStyleBackColor = true;
-            this.add_bkI_Rl_P.Click += new System.EventHandler(this.add_bkI_Rl_P_Click);
             // 
             // add_bkI_Ls_P
             // 
@@ -751,16 +721,6 @@
             this.bkI_Ls_Pennies.TabIndex = 22;
             this.bkI_Ls_Pennies.ValueChanged += new System.EventHandler(this.bkI_Ls_Pennies_ValueChanged);
             // 
-            // add_bkI_Rl_N
-            // 
-            this.add_bkI_Rl_N.Location = new System.Drawing.Point(142, 189);
-            this.add_bkI_Rl_N.Name = "add_bkI_Rl_N";
-            this.add_bkI_Rl_N.Size = new System.Drawing.Size(20, 20);
-            this.add_bkI_Rl_N.TabIndex = 74;
-            this.add_bkI_Rl_N.Text = "+";
-            this.add_bkI_Rl_N.UseVisualStyleBackColor = true;
-            this.add_bkI_Rl_N.Click += new System.EventHandler(this.add_bkI_Rl_N_Click);
-            // 
             // add_bkI_Ls_N
             // 
             this.add_bkI_Ls_N.Location = new System.Drawing.Point(142, 164);
@@ -783,16 +743,6 @@
             this.bkI_Ls_Nickels.Size = new System.Drawing.Size(74, 20);
             this.bkI_Ls_Nickels.TabIndex = 20;
             this.bkI_Ls_Nickels.ValueChanged += new System.EventHandler(this.bkI_Ls_Nickels_ValueChanged);
-            // 
-            // add_bkI_Rl_D
-            // 
-            this.add_bkI_Rl_D.Location = new System.Drawing.Point(142, 122);
-            this.add_bkI_Rl_D.Name = "add_bkI_Rl_D";
-            this.add_bkI_Rl_D.Size = new System.Drawing.Size(20, 20);
-            this.add_bkI_Rl_D.TabIndex = 72;
-            this.add_bkI_Rl_D.Text = "+";
-            this.add_bkI_Rl_D.UseVisualStyleBackColor = true;
-            this.add_bkI_Rl_D.Click += new System.EventHandler(this.add_bkI_Rl_D_Click);
             // 
             // bkI_Rl_Dimes
             // 
@@ -826,16 +776,6 @@
             this.label39.Size = new System.Drawing.Size(53, 13);
             this.label39.TabIndex = 11;
             this.label39.Text = "Nickels:";
-            // 
-            // add_bkI_Rl_Q
-            // 
-            this.add_bkI_Rl_Q.Location = new System.Drawing.Point(142, 58);
-            this.add_bkI_Rl_Q.Name = "add_bkI_Rl_Q";
-            this.add_bkI_Rl_Q.Size = new System.Drawing.Size(20, 20);
-            this.add_bkI_Rl_Q.TabIndex = 70;
-            this.add_bkI_Rl_Q.Text = "+";
-            this.add_bkI_Rl_Q.UseVisualStyleBackColor = true;
-            this.add_bkI_Rl_Q.Click += new System.EventHandler(this.add_bkI_Rl_Q_Click);
             // 
             // bkI_Rl_Nickels
             // 
@@ -1024,7 +964,7 @@
             this.grp_Money.Controls.Add(this.label50);
             this.grp_Money.Controls.Add(this.label49);
             this.grp_Money.Controls.Add(this.label48);
-            this.grp_Money.Location = new System.Drawing.Point(250, 304);
+            this.grp_Money.Location = new System.Drawing.Point(250, 316);
             this.grp_Money.Name = "grp_Money";
             this.grp_Money.Size = new System.Drawing.Size(217, 216);
             this.grp_Money.TabIndex = 99;
@@ -1915,16 +1855,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Packages Out:";
             // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(473, 473);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(249, 23);
-            this.btnClear.TabIndex = 106;
-            this.btnClear.Text = "Clear Worksheet";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // BoatPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1933,7 +1863,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.grp_BillsIn);
             this.Controls.Add(this.grp_Boat);
-            this.Controls.Add(this.btnSaveScreen);
             this.Controls.Add(this.txt_Initials);
             this.Controls.Add(this.label61);
             this.Controls.Add(this.boatNotes);
@@ -1942,7 +1871,6 @@
             this.Controls.Add(this.grp_Stats);
             this.Controls.Add(this.grp_Sold);
             this.Controls.Add(this.grp_Packages);
-            this.Controls.Add(this.btnClear);
             this.Name = "BoatPage";
             this.Size = new System.Drawing.Size(1024, 768);
             this.grpDeposit.ResumeLayout(false);
@@ -2041,22 +1969,17 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.TextBox txt_SailTime;
-        private System.Windows.Forms.Button btnSaveScreen;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox boatNotes;
         private System.Windows.Forms.GroupBox grp_CoinsIn;
-        private System.Windows.Forms.Button add_bkI_Rl_P;
         private System.Windows.Forms.Button add_bkI_Ls_P;
         private System.Windows.Forms.NumericUpDown bkI_Rl_Pennies;
         private System.Windows.Forms.NumericUpDown bkI_Ls_Pennies;
-        private System.Windows.Forms.Button add_bkI_Rl_N;
         private System.Windows.Forms.Button add_bkI_Ls_N;
         private System.Windows.Forms.NumericUpDown bkI_Ls_Nickels;
-        private System.Windows.Forms.Button add_bkI_Rl_D;
         private System.Windows.Forms.NumericUpDown bkI_Rl_Dimes;
         private System.Windows.Forms.Button add_bkI_Ls_D;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Button add_bkI_Rl_Q;
         private System.Windows.Forms.NumericUpDown bkI_Rl_Nickels;
         private System.Windows.Forms.Button add_bkI_Ls_Q;
         private System.Windows.Forms.NumericUpDown bkI_Ls_Dimes;
@@ -2148,6 +2071,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnClear;
     }
 }

@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace BoatSheet
@@ -72,6 +66,11 @@ namespace BoatSheet
                         loadDisplay((Bank.Denomination)i, next_Hundreds, dep_Hundreds);
                         break;
                 }//End DEnom Switch
+
+                if(currBoat.isLocked)
+                {
+                    toggleLock();
+                }
             }//End For loop
         }
 
@@ -184,6 +183,25 @@ namespace BoatSheet
         {
             nextUpdate.Value = currBoat.inBank.getValue(denom) - depBank.getValue(denom);
             depUpdate.Value = depBank.getValue(denom);
+        }
+
+        private void toggleLock()
+        {
+            dep_Ones.Enabled = !dep_Ones.Enabled;
+            dep_Fives.Enabled = !dep_Fives.Enabled;
+            dep_Tens.Enabled = !dep_Tens.Enabled;
+            dep_Twenties.Enabled = !dep_Twenties.Enabled;
+            dep_Fifties.Enabled = !dep_Fifties.Enabled;
+            dep_Hundreds.Enabled = !dep_Hundreds.Enabled;
+
+            dep_Ls_Quarters.Enabled = !dep_Ls_Quarters.Enabled;
+            dep_Rl_Quarters.Enabled = !dep_Rl_Quarters.Enabled;
+            dep_Ls_Dimes.Enabled = !dep_Ls_Dimes.Enabled;
+            dep_Rl_Dimes.Enabled = !dep_Rl_Dimes.Enabled;
+            dep_Ls_Nickels.Enabled = !dep_Ls_Nickels.Enabled;
+            dep_Rl_Nickels.Enabled = !dep_Rl_Nickels.Enabled;
+            dep_Ls_Pennies.Enabled = !dep_Ls_Pennies.Enabled;
+            dep_Rl_Pennies.Enabled = !dep_Rl_Pennies.Enabled;
         }
     }
 }

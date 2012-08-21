@@ -12,12 +12,15 @@ namespace BoatSheet.Data
     {
         public List<Boat> dailyBoats;
 
+        public DateTime myDate;
+
         public string myFile;
 
         public WorkDay()
         {
             dailyBoats = new List<Boat>();
             myFile = null;
+            myDate = DateTime.Today;
         }
 
         #region SERIALIZATION

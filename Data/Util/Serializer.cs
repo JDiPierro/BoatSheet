@@ -43,7 +43,7 @@ namespace BoatSheet
 
                 return loadedBoat;
             }
-            catch (Exception e)
+            catch
             {
 
             }
@@ -63,7 +63,7 @@ namespace BoatSheet
 
                 return loadedDay;
             }
-            catch(Exception e)
+            catch
             {
                 
             }
