@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using BoatSheet.Data.Util;
 
 namespace BoatSheet
 {
@@ -237,16 +236,16 @@ namespace BoatSheet
         {
             if ((boatType)inBoat == boatType.Saint)
             {
-                AllInVal = SettingsHelper.GlobalSettings.saintAllInVal;
-                BaseVal = SettingsHelper.GlobalSettings.saintBaseVal;
-                AcrylOnlyVal = SettingsHelper.GlobalSettings.saintAcrylOnlyVal;
+                AllInVal = Settings.GlobalSettings.saintAllInVal;
+                BaseVal = Settings.GlobalSettings.saintBaseVal;
+                AcrylOnlyVal = Settings.GlobalSettings.saintAcrylOnlyVal;
                 bankOut = 150.0m;
             }
             else
             {
-                AllInVal = SettingsHelper.GlobalSettings.minmoAllInVal;
-                BaseVal = SettingsHelper.GlobalSettings.minmoBaseVal;
-                AcrylOnlyVal = SettingsHelper.GlobalSettings.minmoAcrylOnlyVal;
+                AllInVal = Settings.GlobalSettings.minmoAllInVal;
+                BaseVal = Settings.GlobalSettings.minmoBaseVal;
+                AcrylOnlyVal = Settings.GlobalSettings.minmoAcrylOnlyVal;
                 if ((boatType)inBoat == boatType.Minne)
                     bankOut = 300.0m;
                 else bankOut = 150.0m;
@@ -269,16 +268,16 @@ namespace BoatSheet
         {
             if (inBoat == boatType.Minne)
             {
-                AllInVal = SettingsHelper.GlobalSettings.saintAllInVal;
-                BaseVal = SettingsHelper.GlobalSettings.saintBaseVal;
-                AcrylOnlyVal = SettingsHelper.GlobalSettings.saintAcrylOnlyVal;
+                AllInVal = Settings.GlobalSettings.saintAllInVal;
+                BaseVal = Settings.GlobalSettings.saintBaseVal;
+                AcrylOnlyVal = Settings.GlobalSettings.saintAcrylOnlyVal;
                 bankOut = 150.0m;
             }
             else
             {
-                AllInVal = SettingsHelper.GlobalSettings.minmoAllInVal;
-                BaseVal = SettingsHelper.GlobalSettings.minmoBaseVal;
-                AcrylOnlyVal = SettingsHelper.GlobalSettings.minmoAcrylOnlyVal;
+                AllInVal = Settings.GlobalSettings.minmoAllInVal;
+                BaseVal = Settings.GlobalSettings.minmoBaseVal;
+                AcrylOnlyVal = Settings.GlobalSettings.minmoAcrylOnlyVal;
                 if (inBoat == boatType.Minne)
                     bankOut = 300.0m;
                 else bankOut = 150.0m;
@@ -351,7 +350,7 @@ namespace BoatSheet
             expectedTotal += (sold_allIn + sold_reprint_allIn) * AllInVal;
             expectedTotal += (sold_baseOnly + sold_reprint_Base) * BaseVal;
             expectedTotal += sold_acrylicOnly * AcrylOnlyVal;
-            expectedTotal += sold_acrylicAddOn * SettingsHelper.GlobalSettings.addOnAcrylVal;
+            expectedTotal += sold_acrylicAddOn * Settings.GlobalSettings.addOnAcrylVal;
             expectedTotal += otherPrints * otherValue;
 
             actualTotal = 0.0m;
@@ -426,7 +425,7 @@ namespace BoatSheet
             tempTotal += CC.numAllins*AllInVal;
             tempTotal += CC.numBaseOnly*BaseVal;
             tempTotal += CC.numAcrylicOnly*AcrylOnlyVal;
-            tempTotal += CC.numAcrylicAddOn * SettingsHelper.GlobalSettings.addOnAcrylVal;
+            tempTotal += CC.numAcrylicAddOn * Settings.GlobalSettings.addOnAcrylVal;
             tempTotal += CC.otherValue;
 
             return tempTotal;

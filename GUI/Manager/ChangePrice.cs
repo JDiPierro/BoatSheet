@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using BoatSheet.Data.Util;
 
 namespace BoatSheet.GUI.Manager
 {
@@ -18,7 +17,7 @@ namespace BoatSheet.GUI.Manager
         {
             InitializeComponent();
 
-            price_AcrylicAddOn.Value = SettingsHelper.GlobalSettings.addOnAcrylVal;
+            price_AcrylicAddOn.Value = Settings.GlobalSettings.addOnAcrylVal;
 
             boatSelect.SelectedIndex = 1;
         }
@@ -33,15 +32,15 @@ namespace BoatSheet.GUI.Manager
             ignoreEvent = true;
             if (boatSelect.SelectedIndex == (int)Boat.boatType.Saint)
             {
-                price_AllIn.Value = SettingsHelper.GlobalSettings.saintAllInVal;
-                price_BaseOnly.Value = SettingsHelper.GlobalSettings.saintBaseVal;
-                price_AcrylicOnly.Value = SettingsHelper.GlobalSettings.saintAcrylOnlyVal;
+                price_AllIn.Value = Settings.GlobalSettings.saintAllInVal;
+                price_BaseOnly.Value = Settings.GlobalSettings.saintBaseVal;
+                price_AcrylicOnly.Value = Settings.GlobalSettings.saintAcrylOnlyVal;
             }
             else
             {
-                price_AllIn.Value = SettingsHelper.GlobalSettings.minmoAllInVal;
-                price_BaseOnly.Value = SettingsHelper.GlobalSettings.minmoBaseVal;
-                price_AcrylicOnly.Value = SettingsHelper.GlobalSettings.minmoAcrylOnlyVal;
+                price_AllIn.Value = Settings.GlobalSettings.minmoAllInVal;
+                price_BaseOnly.Value = Settings.GlobalSettings.minmoBaseVal;
+                price_AcrylicOnly.Value = Settings.GlobalSettings.minmoAcrylOnlyVal;
             }
             ignoreEvent = false;
         }
@@ -56,45 +55,45 @@ namespace BoatSheet.GUI.Manager
                 {
                     if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
                     {
-                        SettingsHelper.GlobalSettings.saintAllInVal = objSender.Value;
+                        Settings.GlobalSettings.saintAllInVal = objSender.Value;
                     }
                     else
                     {
-                        SettingsHelper.GlobalSettings.minmoAllInVal = objSender.Value;
+                        Settings.GlobalSettings.minmoAllInVal = objSender.Value;
                     }
                 }
                 else if (objSender == price_BaseOnly)
                 {
                     if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
                     {
-                        SettingsHelper.GlobalSettings.saintBaseVal = objSender.Value;
+                        Settings.GlobalSettings.saintBaseVal = objSender.Value;
                     }
                     else
                     {
-                        SettingsHelper.GlobalSettings.minmoBaseVal = objSender.Value;
+                        Settings.GlobalSettings.minmoBaseVal = objSender.Value;
                     }
                 }
                 else if (objSender == price_AcrylicOnly)
                 {
                     if (Boat.boatType.Saint.Equals(boatSelect.SelectedIndex))
                     {
-                        SettingsHelper.GlobalSettings.saintAcrylOnlyVal = objSender.Value;
+                        Settings.GlobalSettings.saintAcrylOnlyVal = objSender.Value;
                     }
                     else
                     {
-                        SettingsHelper.GlobalSettings.minmoAcrylOnlyVal = objSender.Value;
+                        Settings.GlobalSettings.minmoAcrylOnlyVal = objSender.Value;
                     }
                 }
                 else
                 {
-                    SettingsHelper.GlobalSettings.addOnAcrylVal = objSender.Value;
+                    Settings.GlobalSettings.addOnAcrylVal = objSender.Value;
                 }
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Serializer.SerializeSettings(SettingsHelper.SettingsFileName, SettingsHelper.GlobalSettings);
+            Serializer.SerializeSettings(Settings.SettingsFileName, Settings.GlobalSettings);
             this.Close();
         }
     }

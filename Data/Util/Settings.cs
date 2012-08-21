@@ -6,6 +6,11 @@ namespace BoatSheet
     [Serializable]
     class Settings : ISerializable
     {
+
+        public static Settings GlobalSettings;
+
+        public static string SettingsFileName = "boatSettings.lgset";
+
         public decimal saintAllInVal;
         public decimal saintBaseVal;
         public decimal saintAcrylOnlyVal;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using BoatSheet.Data;
-using BoatSheet.Data.Util;
 using BoatSheet.GUI.Manager;
 
 namespace BoatSheet
@@ -25,7 +24,7 @@ namespace BoatSheet
                 //No: Make new Settings file with defaults
             loadSettings();
 
-            string defaultFilePath = SettingsHelper.GlobalSettings.defaultSaveLoc + "\\LG Daily Worksheets\\";
+            string defaultFilePath = Settings.GlobalSettings.defaultSaveLoc + "\\LG Daily Worksheets\\";
             loadToday(ref defaultFilePath);
             updateLockButton();
         }
@@ -66,16 +65,16 @@ namespace BoatSheet
 
         private void loadSettings()
         {
-            if (System.IO.File.Exists(SettingsHelper.SettingsFileName))
+            if (System.IO.File.Exists(Settings.SettingsFileName))
             {
                 //Yes: Load the day
-                SettingsHelper.GlobalSettings = Serializer.DeSerializeSettings(SettingsHelper.SettingsFileName);
+                Settings.GlobalSettings = Serializer.DeSerializeSettings(Settings.SettingsFileName);
             }
             else
             {
                 var newSettings = new Settings();
-                SettingsHelper.GlobalSettings = newSettings;
-                Serializer.SerializeSettings(SettingsHelper.SettingsFileName, SettingsHelper.GlobalSettings);
+                Settings.GlobalSettings = newSettings;
+                Serializer.SerializeSettings(Settings.SettingsFileName, Settings.GlobalSettings);
             }
         }
 
@@ -193,10 +192,10 @@ namespace BoatSheet
 
             var fld = new OpenFileDialog();
             fld.AddExtension = true;
-            if (SettingsHelper.GlobalSettings.lastSaveLoc == null)
+            if (Settings.GlobalSettings.lastSaveLoc == null)
                 fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             else
-                fld.InitialDirectory = SettingsHelper.GlobalSettings.lastSaveLoc;
+                fld.InitialDirectory = Settings.GlobalSettings.lastSaveLoc;
             fld.DefaultExt = "day";
             fld.Filter = "Day Data (*.day)|*.day|All files (*.*)|*.*";
 
