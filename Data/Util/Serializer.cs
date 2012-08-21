@@ -30,6 +30,16 @@ namespace BoatSheet
             stream.Close();
         }
 
+        public static void SerializeSettings(string filename, Settings dayToSave)
+        {
+            Stream stream = File.Open(filename, FileMode.Create);
+
+            var bFormatter = new BinaryFormatter();
+            bFormatter.Serialize(stream, dayToSave);
+
+            stream.Close();
+        }
+
         public static Boat DeSerializeBoat(string filename)
         {
             try
@@ -37,7 +47,7 @@ namespace BoatSheet
                 Stream stream = File.Open(filename, FileMode.Open);
 
                 var bFormatter = new BinaryFormatter();
-                Boat loadedBoat = (Boat) bFormatter.Deserialize(stream);
+                var loadedBoat = (Boat) bFormatter.Deserialize(stream);
 
                 stream.Close();
 
@@ -57,7 +67,7 @@ namespace BoatSheet
                 Stream stream = File.Open(filename, FileMode.Open);
 
                 var bFormatter = new BinaryFormatter();
-                WorkDay loadedDay = (WorkDay) bFormatter.Deserialize(stream);
+                var loadedDay = (WorkDay) bFormatter.Deserialize(stream);
 
                 stream.Close();
 
@@ -66,6 +76,26 @@ namespace BoatSheet
             catch
             {
                 
+            }
+            return null;
+        }
+
+        public static Settings DeSerializeSettings(string filename)
+        {
+            try
+            {
+                Stream stream = File.Open(filename, FileMode.Open);
+
+                var bFormatter = new BinaryFormatter();
+                var loadedDay = (Settings)bFormatter.Deserialize(stream);
+
+                stream.Close();
+
+                return loadedDay;
+            }
+            catch
+            {
+
             }
             return null;
         }

@@ -1,38 +1,81 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace BoatSheet
 {
-    static class Settings
+    [Serializable]
+    class Settings : ISerializable
     {
-        public enum packageType
+        public decimal saintAllInVal;
+        public decimal saintBaseVal;
+        public decimal saintAcrylOnlyVal;
+
+        public decimal minmoAllInVal;
+        public decimal minmoBaseVal;
+        public decimal minmoAcrylOnlyVal;
+
+        public decimal addOnAcrylVal;
+
+        public string lastSaveLoc;
+
+        public string defaultSaveLoc;
+
+        public Settings()
         {
-            ALL_IN,
-            BASE_ONLY,
-            ACRYLIC_ONLY,
-            ACRYLIC_ADDON,
+            saintAllInVal = 37.45m;
+            saintBaseVal = 26.75m;
+            saintAcrylOnlyVal = 32.10m;
+
+            minmoAllInVal = 32.10m;
+            minmoBaseVal = 21.40m;
+            minmoAcrylOnlyVal = 26.75m;
+
+            addOnAcrylVal = 10.70m;
+
+            lastSaveLoc = String.Empty;
+
+            defaultSaveLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         }
 
-        //TODO: ALL VARIABLES MUST BE INSTANTIATED INSIDE THE CONSTURCTOR FOR SERIALZIATION.
+        public Settings(SerializationInfo info, StreamingContext context)
+        {
+            saintAllInVal = info.GetDecimal("saintAllInVal");
+            saintBaseVal = info.GetDecimal("saintBaseVal");
+            saintAcrylOnlyVal = info.GetDecimal("saintAcrylOnlyVal");
 
-        public static decimal saintAllInVal = 37.45m;
-        public static decimal saintBaseVal = 26.75m;
-        public static decimal saintAcrylOnlyVal = 32.10m;
+            minmoAllInVal = info.GetDecimal("minmoAllInVal");
+            minmoBaseVal = info.GetDecimal("minmoBaseVal");
+            minmoAcrylOnlyVal = info.GetDecimal("minmoAcrylOnlyVal");
 
-        public static decimal minmoAllInVal = 32.10m;
-        public static decimal minmoBaseVal = 21.40m;
-        public static decimal minmoAcrylOnlyVal = 26.75m;
+            addOnAcrylVal = info.GetDecimal("addOnAcrylVal");
 
-        public static decimal addOnAcrylVal = 10.70m;
+            lastSaveLoc = info.GetString("lastSaveLoc");
 
-        public static string lastSaveLoc = String.Empty;
+            defaultSaveLoc = info.GetString("defaultSaveLoc");
+        }
 
-        public static string defaultSaveLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("saintAllInVal", saintAllInVal);
+            info.AddValue("saintBaseVal", saintBaseVal);
+            info.AddValue("saintAcrylOnlyVal", saintAcrylOnlyVal);
 
-        public static void setPrice(Boat.boatType boat, packageType package, decimal price)
+            info.AddValue("minmoAllInVal", minmoAllInVal);
+            info.AddValue("minmoBaseVal", minmoBaseVal);
+            info.AddValue("minmoAcrylOnlyVal", minmoAcrylOnlyVal);
+
+            info.AddValue("addOnAcrylVal", addOnAcrylVal);
+
+            info.AddValue("lastSaveLoc", lastSaveLoc);
+
+            info.AddValue("defaultSaveLoc", defaultSaveLoc);
+        }
+
+        public void setPrice(Boat.boatType boat, Boat.packageType package, decimal price)
         {
             if(boat == Boat.boatType.NONE)
             {
-                if(package == packageType.ACRYLIC_ADDON)
+                if(package == Boat.packageType.ACRYLIC_ADDON)
                 {
                     addOnAcrylVal = price;
                 }
@@ -41,13 +84,13 @@ namespace BoatSheet
             {
                 switch(package)
                 {
-                    case packageType.ALL_IN:
+                    case Boat.packageType.ALL_IN:
                         saintAllInVal = price;
                         break;
-                    case packageType.BASE_ONLY:
+                    case Boat.packageType.BASE_ONLY:
                         saintBaseVal = price;
                         break;
-                    case packageType.ACRYLIC_ONLY:
+                    case Boat.packageType.ACRYLIC_ONLY:
                         saintAcrylOnlyVal = price;
                         break;
                 }
@@ -56,13 +99,13 @@ namespace BoatSheet
             {
                 switch (package)
                 {
-                    case packageType.ALL_IN:
+                    case Boat.packageType.ALL_IN:
                         minmoAllInVal = price;
                         break;
-                    case packageType.BASE_ONLY:
+                    case Boat.packageType.BASE_ONLY:
                         minmoBaseVal = price;
                         break;
-                    case packageType.ACRYLIC_ONLY:
+                    case Boat.packageType.ACRYLIC_ONLY:
                         minmoAcrylOnlyVal = price;
                         break;
                 }
@@ -70,11 +113,42 @@ namespace BoatSheet
         }
 
         //TODO: Implement
-        public static decimal getPrice(Boat.boatType boat, packageType package)
+        public decimal getPrice(Boat.boatType boat, Boat.packageType package)
         {
-            //
-            return 0.0m;
+            if (boat == Boat.boatType.NONE)
+            {
+                if (package == Boat.packageType.ACRYLIC_ADDON)
+                {
+                    return addOnAcrylVal;
+                }
+            }
+            else if (boat == Boat.boatType.Saint)
+            {
+                switch (package)
+                {
+                    case Boat.packageType.ALL_IN:
+                        return saintAllInVal;
+                    case Boat.packageType.BASE_ONLY:
+                        return saintBaseVal;
+                    case Boat.packageType.ACRYLIC_ONLY:
+                        return saintAcrylOnlyVal;
+                }
+            }
+            else
+            {
+                switch (package)
+                {
+                    case Boat.packageType.ALL_IN:
+                        return minmoAllInVal;
+                    case Boat.packageType.BASE_ONLY:
+                        return minmoBaseVal;;
+                    case Boat.packageType.ACRYLIC_ONLY:
+                        return minmoAcrylOnlyVal;
+                }
+            }
+            return -999.0m;
         }
 
+        
     }
 }

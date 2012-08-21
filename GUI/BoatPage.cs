@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using BoatSheet.Data.Util;
 
 namespace BoatSheet
 {
@@ -792,6 +793,20 @@ namespace BoatSheet
             add_bkI_Ls_N.Enabled = !add_bkI_Ls_N.Enabled;
             add_bkI_Ls_P.Enabled = !add_bkI_Ls_P.Enabled;
             //Leave the CC and deposit buttons enabled so you can check the values.
+        }
+
+        private void SelectAllText(object sender, EventArgs e)
+        {
+            try
+            {
+                var objSender = (NumericUpDown) sender;
+                objSender.Select(0, objSender.Text.Length);
+            }
+            catch
+            {
+
+            }
+
         }
 
     }

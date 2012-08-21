@@ -47,9 +47,9 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.btnLockBoat = new System.Windows.Forms.Button();
-            this.btnNewBoat = new System.Windows.Forms.Button();
             this.btnSavePic = new System.Windows.Forms.Button();
+            this.btnNewBoat = new System.Windows.Forms.Button();
+            this.btnLockBoat = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -188,43 +188,44 @@
             this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl.Location = new System.Drawing.Point(12, 27);
+            this.tabControl.Location = new System.Drawing.Point(109, 27);
             this.tabControl.MinimumSize = new System.Drawing.Size(969, 568);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(969, 568);
             this.tabControl.TabIndex = 1;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabChanged);
+            this.tabControl.Deselected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Deselected);
             // 
-            // btnLockBoat
+            // btnSavePic
             // 
-            this.btnLockBoat.Location = new System.Drawing.Point(987, 27);
-            this.btnLockBoat.Name = "btnLockBoat";
-            this.btnLockBoat.Size = new System.Drawing.Size(91, 23);
-            this.btnLockBoat.TabIndex = 3;
-            this.btnLockBoat.Text = "Lock Boat";
-            this.btnLockBoat.UseVisualStyleBackColor = true;
-            this.btnLockBoat.Click += new System.EventHandler(this.LockBoat_Click);
+            this.btnSavePic.Location = new System.Drawing.Point(12, 85);
+            this.btnSavePic.Name = "btnSavePic";
+            this.btnSavePic.Size = new System.Drawing.Size(91, 23);
+            this.btnSavePic.TabIndex = 8;
+            this.btnSavePic.Text = "Save Picture";
+            this.btnSavePic.UseVisualStyleBackColor = true;
+            this.btnSavePic.Click += new System.EventHandler(this.btnSavePic_Click);
             // 
             // btnNewBoat
             // 
-            this.btnNewBoat.Location = new System.Drawing.Point(987, 56);
+            this.btnNewBoat.Location = new System.Drawing.Point(12, 56);
             this.btnNewBoat.Name = "btnNewBoat";
             this.btnNewBoat.Size = new System.Drawing.Size(91, 23);
-            this.btnNewBoat.TabIndex = 4;
+            this.btnNewBoat.TabIndex = 7;
             this.btnNewBoat.Text = "New Boat";
             this.btnNewBoat.UseVisualStyleBackColor = true;
             this.btnNewBoat.Click += new System.EventHandler(this.Event_NewTab);
             // 
-            // btnSavePic
+            // btnLockBoat
             // 
-            this.btnSavePic.Location = new System.Drawing.Point(987, 85);
-            this.btnSavePic.Name = "btnSavePic";
-            this.btnSavePic.Size = new System.Drawing.Size(91, 23);
-            this.btnSavePic.TabIndex = 5;
-            this.btnSavePic.Text = "Save Picture";
-            this.btnSavePic.UseVisualStyleBackColor = true;
-            this.btnSavePic.Click += new System.EventHandler(this.btnSavePic_Click);
+            this.btnLockBoat.Location = new System.Drawing.Point(12, 27);
+            this.btnLockBoat.Name = "btnLockBoat";
+            this.btnLockBoat.Size = new System.Drawing.Size(91, 23);
+            this.btnLockBoat.TabIndex = 6;
+            this.btnLockBoat.Text = "Lock Boat";
+            this.btnLockBoat.UseVisualStyleBackColor = true;
+            this.btnLockBoat.Click += new System.EventHandler(this.LockBoat_Click);
             // 
             // BoatSheet
             // 
@@ -269,9 +270,9 @@
         private System.Windows.Forms.ToolStripMenuItem changePricesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menu_deleteBoat;
         private System.Windows.Forms.ToolStripMenuItem menu_SaveDayAs;
+        private System.Windows.Forms.Button btnSavePic;
         private System.Windows.Forms.Button btnNewBoat;
         private System.Windows.Forms.Button btnLockBoat;
-        private System.Windows.Forms.Button btnSavePic;
     }
 }
 

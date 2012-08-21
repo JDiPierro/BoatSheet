@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using BoatSheet.Data;
+using BoatSheet.Data.Util;
 using BoatSheet.GUI.Manager;
 
 namespace BoatSheet
@@ -22,8 +23,9 @@ namespace BoatSheet
             //Check if Settings file exists...
                 //Yes: Load settings from file
                 //No: Make new Settings file with defaults
+            loadSettings();
 
-            string defaultFilePath = Settings.defaultSaveLoc + "\\LG Daily Worksheets\\";
+            string defaultFilePath = SettingsHelper.GlobalSettings.defaultSaveLoc + "\\LG Daily Worksheets\\";
             loadToday(ref defaultFilePath);
             updateLockButton();
         }
@@ -59,6 +61,21 @@ namespace BoatSheet
                 System.IO.Directory.CreateDirectory(defaultFilePath);
                 //Yaay recursive :D
                 loadToday(ref defaultFilePath);
+            }
+        }
+
+        private void loadSettings()
+        {
+            if (System.IO.File.Exists(SettingsHelper.SettingsFileName))
+            {
+                //Yes: Load the day
+                SettingsHelper.GlobalSettings = Serializer.DeSerializeSettings(SettingsHelper.SettingsFileName);
+            }
+            else
+            {
+                var newSettings = new Settings();
+                SettingsHelper.GlobalSettings = newSettings;
+                Serializer.SerializeSettings(SettingsHelper.SettingsFileName, SettingsHelper.GlobalSettings);
             }
         }
 
@@ -176,10 +193,10 @@ namespace BoatSheet
 
             var fld = new OpenFileDialog();
             fld.AddExtension = true;
-            if (Settings.lastSaveLoc == null)
+            if (SettingsHelper.GlobalSettings.lastSaveLoc == null)
                 fld.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             else
-                fld.InitialDirectory = Settings.lastSaveLoc;
+                fld.InitialDirectory = SettingsHelper.GlobalSettings.lastSaveLoc;
             fld.DefaultExt = "day";
             fld.Filter = "Day Data (*.day)|*.day|All files (*.*)|*.*";
 
@@ -249,12 +266,16 @@ namespace BoatSheet
 
         private void updateLockButton()
         {
-            var currPage = (BoatPage)tabControl.SelectedTab.Controls[0];
-            if (currPage.currBoat.isLocked)
+            if (tabControl.TabCount > 0)
             {
-                btnLockBoat.Text = "Unlock Boat";
+                var currPage = (BoatPage) tabControl.SelectedTab.Controls[0];
+
+                if (currPage.currBoat.isLocked)
+                {
+                    btnLockBoat.Text = "Unlock Boat";
+                }
+                else btnLockBoat.Text = "Lock Boat";
             }
-            else btnLockBoat.Text = "Lock Boat";
         }
 
         private void btnSavePic_Click(object sender, EventArgs e)
@@ -262,6 +283,16 @@ namespace BoatSheet
             var currPage = (BoatPage)tabControl.SelectedTab.Controls[0];
 
             currPage.savePicture();
+        }
+
+        private void tabControl_Deselected(object sender, TabControlEventArgs e)
+        {
+            var page = (BoatPage)tabControl.SelectedTab.Controls[0];
+
+            if (!page.currBoat.isLocked)
+            {
+                page.toggleBoatLock(false);
+            }
         }
     }
 }

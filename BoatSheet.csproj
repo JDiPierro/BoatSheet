@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Util\SettingsHelper.cs" />
     <Compile Include="Data\WorkDay.cs" />
     <Compile Include="GUI\DailyWorksheet.cs">
       <SubType>UserControl</SubType>

@@ -233,7 +233,7 @@
             this.grpDeposit.Location = new System.Drawing.Point(728, 304);
             this.grpDeposit.Name = "grpDeposit";
             this.grpDeposit.Size = new System.Drawing.Size(200, 112);
-            this.grpDeposit.TabIndex = 109;
+            this.grpDeposit.TabIndex = 7;
             this.grpDeposit.TabStop = false;
             this.grpDeposit.Text = "Deposit:";
             // 
@@ -273,7 +273,7 @@
             this.btnDeposit.Location = new System.Drawing.Point(6, 19);
             this.btnDeposit.Name = "btnDeposit";
             this.btnDeposit.Size = new System.Drawing.Size(86, 23);
-            this.btnDeposit.TabIndex = 0;
+            this.btnDeposit.TabIndex = 40;
             this.btnDeposit.Text = "Set Deposit";
             this.btnDeposit.UseVisualStyleBackColor = true;
             this.btnDeposit.Click += new System.EventHandler(this.btnDeposit_Click);
@@ -293,7 +293,7 @@
             this.txt_Initials.Location = new System.Drawing.Point(665, 404);
             this.txt_Initials.Name = "txt_Initials";
             this.txt_Initials.Size = new System.Drawing.Size(56, 20);
-            this.txt_Initials.TabIndex = 111;
+            this.txt_Initials.TabIndex = 42;
             this.txt_Initials.Click += new System.EventHandler(this.txt_Initials_TextChanged);
             this.txt_Initials.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
@@ -320,7 +320,7 @@
             this.grp_BillsIn.Location = new System.Drawing.Point(250, 3);
             this.grp_BillsIn.Name = "grp_BillsIn";
             this.grp_BillsIn.Size = new System.Drawing.Size(179, 295);
-            this.grp_BillsIn.TabIndex = 105;
+            this.grp_BillsIn.TabIndex = 4;
             this.grp_BillsIn.TabStop = false;
             this.grp_BillsIn.Text = "Bills In:";
             // 
@@ -384,8 +384,9 @@
             0});
             this.bkI_Hundreds.Name = "bkI_Hundreds";
             this.bkI_Hundreds.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Hundreds.TabIndex = 29;
+            this.bkI_Hundreds.TabIndex = 25;
             this.bkI_Hundreds.ValueChanged += new System.EventHandler(this.bkI_Hundreds_ValueChanged);
+            this.bkI_Hundreds.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label27
             // 
@@ -427,8 +428,9 @@
             0});
             this.bkI_Twenties.Name = "bkI_Twenties";
             this.bkI_Twenties.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Twenties.TabIndex = 27;
+            this.bkI_Twenties.TabIndex = 23;
             this.bkI_Twenties.ValueChanged += new System.EventHandler(this.bkI_Twenties_ValueChanged);
+            this.bkI_Twenties.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label25
             // 
@@ -460,8 +462,9 @@
             0});
             this.bkI_Tens.Name = "bkI_Tens";
             this.bkI_Tens.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Tens.TabIndex = 26;
+            this.bkI_Tens.TabIndex = 22;
             this.bkI_Tens.ValueChanged += new System.EventHandler(this.bkI_Tens_ValueChanged);
+            this.bkI_Tens.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // bkI_Fifties
             // 
@@ -473,8 +476,9 @@
             0});
             this.bkI_Fifties.Name = "bkI_Fifties";
             this.bkI_Fifties.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Fifties.TabIndex = 28;
+            this.bkI_Fifties.TabIndex = 24;
             this.bkI_Fifties.ValueChanged += new System.EventHandler(this.bkI_Fifties_ValueChanged);
+            this.bkI_Fifties.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // add_bkI_5
             // 
@@ -491,7 +495,7 @@
             this.add_bkI_1.Location = new System.Drawing.Point(147, 37);
             this.add_bkI_1.Name = "add_bkI_1";
             this.add_bkI_1.Size = new System.Drawing.Size(20, 20);
-            this.add_bkI_1.TabIndex = 75;
+            this.add_bkI_1.TabIndex = 77;
             this.add_bkI_1.Text = "+";
             this.add_bkI_1.UseVisualStyleBackColor = true;
             this.add_bkI_1.Click += new System.EventHandler(this.add_bkI_1_Click);
@@ -506,8 +510,9 @@
             0});
             this.bkI_Fives.Name = "bkI_Fives";
             this.bkI_Fives.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Fives.TabIndex = 25;
+            this.bkI_Fives.TabIndex = 21;
             this.bkI_Fives.ValueChanged += new System.EventHandler(this.bkI_Fives_ValueChanged);
+            this.bkI_Fives.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // bkI_Ones
             // 
@@ -519,8 +524,9 @@
             0});
             this.bkI_Ones.Name = "bkI_Ones";
             this.bkI_Ones.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Ones.TabIndex = 24;
+            this.bkI_Ones.TabIndex = 20;
             this.bkI_Ones.ValueChanged += new System.EventHandler(this.bkI_Ones_ValueChanged);
+            this.bkI_Ones.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // grp_Boat
             // 
@@ -536,7 +542,7 @@
             this.grp_Boat.Location = new System.Drawing.Point(3, 3);
             this.grp_Boat.Name = "grp_Boat";
             this.grp_Boat.Size = new System.Drawing.Size(241, 135);
-            this.grp_Boat.TabIndex = 104;
+            this.grp_Boat.TabIndex = 1;
             this.grp_Boat.TabStop = false;
             this.grp_Boat.Text = "Boat Info:";
             // 
@@ -566,7 +572,7 @@
             this.cbx_ovrBankOut.Location = new System.Drawing.Point(79, 106);
             this.cbx_ovrBankOut.Name = "cbx_ovrBankOut";
             this.cbx_ovrBankOut.Size = new System.Drawing.Size(15, 14);
-            this.cbx_ovrBankOut.TabIndex = 90;
+            this.cbx_ovrBankOut.TabIndex = 3;
             this.cbx_ovrBankOut.UseVisualStyleBackColor = true;
             this.cbx_ovrBankOut.CheckedChanged += new System.EventHandler(this.cbx_ovrBankOut_CheckedChanged);
             // 
@@ -590,9 +596,10 @@
             0});
             this.bankOutAmt.Name = "bankOutAmt";
             this.bankOutAmt.Size = new System.Drawing.Size(87, 20);
-            this.bankOutAmt.TabIndex = 35;
+            this.bankOutAmt.TabIndex = 4;
             this.bankOutAmt.ThousandsSeparator = true;
             this.bankOutAmt.ValueChanged += new System.EventHandler(this.bankOutAmt_ValueChanged);
+            this.bankOutAmt.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // sel_BoatSelect
             // 
@@ -605,7 +612,7 @@
             this.sel_BoatSelect.Location = new System.Drawing.Point(101, 45);
             this.sel_BoatSelect.Name = "sel_BoatSelect";
             this.sel_BoatSelect.Size = new System.Drawing.Size(86, 21);
-            this.sel_BoatSelect.TabIndex = 32;
+            this.sel_BoatSelect.TabIndex = 1;
             this.sel_BoatSelect.SelectedIndexChanged += new System.EventHandler(this.prd_BoatSelect_SelectedIndexChanged);
             // 
             // label4
@@ -631,7 +638,7 @@
             this.txt_SailTime.Location = new System.Drawing.Point(101, 75);
             this.txt_SailTime.Name = "txt_SailTime";
             this.txt_SailTime.Size = new System.Drawing.Size(86, 20);
-            this.txt_SailTime.TabIndex = 11;
+            this.txt_SailTime.TabIndex = 2;
             this.txt_SailTime.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // label61
@@ -649,7 +656,7 @@
             this.boatNotes.Multiline = true;
             this.boatNotes.Name = "boatNotes";
             this.boatNotes.Size = new System.Drawing.Size(249, 102);
-            this.boatNotes.TabIndex = 101;
+            this.boatNotes.TabIndex = 41;
             this.boatNotes.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // grp_CoinsIn
@@ -681,7 +688,7 @@
             this.grp_CoinsIn.Location = new System.Drawing.Point(435, 3);
             this.grp_CoinsIn.Name = "grp_CoinsIn";
             this.grp_CoinsIn.Size = new System.Drawing.Size(179, 295);
-            this.grp_CoinsIn.TabIndex = 96;
+            this.grp_CoinsIn.TabIndex = 5;
             this.grp_CoinsIn.TabStop = false;
             this.grp_CoinsIn.Text = "Coins In:";
             // 
@@ -705,8 +712,9 @@
             0});
             this.bkI_Rl_Pennies.Name = "bkI_Rl_Pennies";
             this.bkI_Rl_Pennies.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Rl_Pennies.TabIndex = 23;
+            this.bkI_Rl_Pennies.TabIndex = 33;
             this.bkI_Rl_Pennies.ValueChanged += new System.EventHandler(this.bkI_Rl_Pennies_ValueChanged);
+            this.bkI_Rl_Pennies.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // bkI_Ls_Pennies
             // 
@@ -718,8 +726,9 @@
             0});
             this.bkI_Ls_Pennies.Name = "bkI_Ls_Pennies";
             this.bkI_Ls_Pennies.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Ls_Pennies.TabIndex = 22;
+            this.bkI_Ls_Pennies.TabIndex = 32;
             this.bkI_Ls_Pennies.ValueChanged += new System.EventHandler(this.bkI_Ls_Pennies_ValueChanged);
+            this.bkI_Ls_Pennies.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // add_bkI_Ls_N
             // 
@@ -741,8 +750,9 @@
             0});
             this.bkI_Ls_Nickels.Name = "bkI_Ls_Nickels";
             this.bkI_Ls_Nickels.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Ls_Nickels.TabIndex = 20;
+            this.bkI_Ls_Nickels.TabIndex = 30;
             this.bkI_Ls_Nickels.ValueChanged += new System.EventHandler(this.bkI_Ls_Nickels_ValueChanged);
+            this.bkI_Ls_Nickels.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // bkI_Rl_Dimes
             // 
@@ -754,8 +764,9 @@
             0});
             this.bkI_Rl_Dimes.Name = "bkI_Rl_Dimes";
             this.bkI_Rl_Dimes.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Rl_Dimes.TabIndex = 19;
+            this.bkI_Rl_Dimes.TabIndex = 29;
             this.bkI_Rl_Dimes.ValueChanged += new System.EventHandler(this.bkI_Rl_Dimes_ValueChanged);
+            this.bkI_Rl_Dimes.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // add_bkI_Ls_D
             // 
@@ -787,8 +798,9 @@
             0});
             this.bkI_Rl_Nickels.Name = "bkI_Rl_Nickels";
             this.bkI_Rl_Nickels.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Rl_Nickels.TabIndex = 21;
+            this.bkI_Rl_Nickels.TabIndex = 31;
             this.bkI_Rl_Nickels.ValueChanged += new System.EventHandler(this.bkI_Rl_Nickels_ValueChanged);
+            this.bkI_Rl_Nickels.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // add_bkI_Ls_Q
             // 
@@ -810,8 +822,9 @@
             0});
             this.bkI_Ls_Dimes.Name = "bkI_Ls_Dimes";
             this.bkI_Ls_Dimes.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Ls_Dimes.TabIndex = 18;
+            this.bkI_Ls_Dimes.TabIndex = 28;
             this.bkI_Ls_Dimes.ValueChanged += new System.EventHandler(this.bkI_Ls_Dimes_ValueChanged);
+            this.bkI_Ls_Dimes.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label38
             // 
@@ -832,8 +845,9 @@
             0});
             this.bkI_Rl_Quarters.Name = "bkI_Rl_Quarters";
             this.bkI_Rl_Quarters.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Rl_Quarters.TabIndex = 17;
+            this.bkI_Rl_Quarters.TabIndex = 27;
             this.bkI_Rl_Quarters.ValueChanged += new System.EventHandler(this.bkI_Rl_Quarters_ValueChanged);
+            this.bkI_Rl_Quarters.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label37
             // 
@@ -854,8 +868,9 @@
             0});
             this.bkI_Ls_Quarters.Name = "bkI_Ls_Quarters";
             this.bkI_Ls_Quarters.Size = new System.Drawing.Size(74, 20);
-            this.bkI_Ls_Quarters.TabIndex = 16;
+            this.bkI_Ls_Quarters.TabIndex = 26;
             this.bkI_Ls_Quarters.ValueChanged += new System.EventHandler(this.bkI_Ls_Quarters_ValueChanged);
+            this.bkI_Ls_Quarters.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label31
             // 
@@ -967,7 +982,7 @@
             this.grp_Money.Location = new System.Drawing.Point(250, 316);
             this.grp_Money.Name = "grp_Money";
             this.grp_Money.Size = new System.Drawing.Size(217, 216);
-            this.grp_Money.TabIndex = 99;
+            this.grp_Money.TabIndex = 6;
             this.grp_Money.TabStop = false;
             this.grp_Money.Text = "Money Breakdown:";
             // 
@@ -976,7 +991,7 @@
             this.addCC_Check.Location = new System.Drawing.Point(185, 173);
             this.addCC_Check.Name = "addCC_Check";
             this.addCC_Check.Size = new System.Drawing.Size(20, 20);
-            this.addCC_Check.TabIndex = 89;
+            this.addCC_Check.TabIndex = 39;
             this.addCC_Check.Text = "+";
             this.addCC_Check.UseVisualStyleBackColor = true;
             this.addCC_Check.Click += new System.EventHandler(this.addCC_Check_Click);
@@ -986,7 +1001,7 @@
             this.addCC_DirectBill.Location = new System.Drawing.Point(185, 147);
             this.addCC_DirectBill.Name = "addCC_DirectBill";
             this.addCC_DirectBill.Size = new System.Drawing.Size(20, 20);
-            this.addCC_DirectBill.TabIndex = 88;
+            this.addCC_DirectBill.TabIndex = 38;
             this.addCC_DirectBill.Text = "+";
             this.addCC_DirectBill.UseVisualStyleBackColor = true;
             this.addCC_DirectBill.Click += new System.EventHandler(this.addCC_DirectBill_Click);
@@ -996,7 +1011,7 @@
             this.addCC_Discover.Location = new System.Drawing.Point(185, 121);
             this.addCC_Discover.Name = "addCC_Discover";
             this.addCC_Discover.Size = new System.Drawing.Size(20, 20);
-            this.addCC_Discover.TabIndex = 87;
+            this.addCC_Discover.TabIndex = 37;
             this.addCC_Discover.Text = "+";
             this.addCC_Discover.UseVisualStyleBackColor = true;
             this.addCC_Discover.Click += new System.EventHandler(this.addCC_Discover_Click);
@@ -1006,7 +1021,7 @@
             this.addCC_MC.Location = new System.Drawing.Point(185, 96);
             this.addCC_MC.Name = "addCC_MC";
             this.addCC_MC.Size = new System.Drawing.Size(20, 20);
-            this.addCC_MC.TabIndex = 86;
+            this.addCC_MC.TabIndex = 36;
             this.addCC_MC.Text = "+";
             this.addCC_MC.UseVisualStyleBackColor = true;
             this.addCC_MC.Click += new System.EventHandler(this.addCC_MC_Click);
@@ -1016,7 +1031,7 @@
             this.addCC_Visa.Location = new System.Drawing.Point(185, 69);
             this.addCC_Visa.Name = "addCC_Visa";
             this.addCC_Visa.Size = new System.Drawing.Size(20, 20);
-            this.addCC_Visa.TabIndex = 85;
+            this.addCC_Visa.TabIndex = 35;
             this.addCC_Visa.Text = "+";
             this.addCC_Visa.UseVisualStyleBackColor = true;
             this.addCC_Visa.Click += new System.EventHandler(this.addCC_Visa_Click);
@@ -1026,7 +1041,7 @@
             this.addCC_Amex.Location = new System.Drawing.Point(185, 43);
             this.addCC_Amex.Name = "addCC_Amex";
             this.addCC_Amex.Size = new System.Drawing.Size(20, 20);
-            this.addCC_Amex.TabIndex = 84;
+            this.addCC_Amex.TabIndex = 34;
             this.addCC_Amex.Text = "+";
             this.addCC_Amex.UseVisualStyleBackColor = true;
             this.addCC_Amex.Click += new System.EventHandler(this.addCC_Amex_Click);
@@ -1463,7 +1478,7 @@
             this.grp_Sold.Location = new System.Drawing.Point(3, 330);
             this.grp_Sold.Name = "grp_Sold";
             this.grp_Sold.Size = new System.Drawing.Size(241, 202);
-            this.grp_Sold.TabIndex = 98;
+            this.grp_Sold.TabIndex = 3;
             this.grp_Sold.TabStop = false;
             this.grp_Sold.Text = "Product Sold:";
             // 
@@ -1479,7 +1494,7 @@
             0});
             this.prd_Other_Price.Name = "prd_Other_Price";
             this.prd_Other_Price.Size = new System.Drawing.Size(63, 20);
-            this.prd_Other_Price.TabIndex = 44;
+            this.prd_Other_Price.TabIndex = 18;
             this.prd_Other_Price.ThousandsSeparator = true;
             // 
             // prd_ReprintBase
@@ -1492,9 +1507,10 @@
             0});
             this.prd_ReprintBase.Name = "prd_ReprintBase";
             this.prd_ReprintBase.Size = new System.Drawing.Size(63, 20);
-            this.prd_ReprintBase.TabIndex = 43;
+            this.prd_ReprintBase.TabIndex = 16;
             this.prd_ReprintBase.ThousandsSeparator = true;
             this.prd_ReprintBase.ValueChanged += new System.EventHandler(this.prd_ReprintBase_ValueChanged);
+            this.prd_ReprintBase.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label7
             // 
@@ -1511,7 +1527,7 @@
             this.cbxAllInOver.Location = new System.Drawing.Point(80, 23);
             this.cbxAllInOver.Name = "cbxAllInOver";
             this.cbxAllInOver.Size = new System.Drawing.Size(15, 14);
-            this.cbxAllInOver.TabIndex = 41;
+            this.cbxAllInOver.TabIndex = 11;
             this.cbxAllInOver.UseVisualStyleBackColor = true;
             this.cbxAllInOver.CheckedChanged += new System.EventHandler(this.cbxAllInOver_CheckedChanged);
             // 
@@ -1525,9 +1541,10 @@
             0});
             this.prd_AcrylAdd.Name = "prd_AcrylAdd";
             this.prd_AcrylAdd.Size = new System.Drawing.Size(63, 20);
-            this.prd_AcrylAdd.TabIndex = 40;
+            this.prd_AcrylAdd.TabIndex = 19;
             this.prd_AcrylAdd.ThousandsSeparator = true;
             this.prd_AcrylAdd.ValueChanged += new System.EventHandler(this.prd_AcrylAdd_ValueChanged);
+            this.prd_AcrylAdd.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // prd_Other
             // 
@@ -1540,7 +1557,7 @@
             0});
             this.prd_Other.Name = "prd_Other";
             this.prd_Other.Size = new System.Drawing.Size(63, 20);
-            this.prd_Other.TabIndex = 38;
+            this.prd_Other.TabIndex = 17;
             this.prd_Other.ThousandsSeparator = true;
             // 
             // prd_ReprintAllIn
@@ -1553,9 +1570,10 @@
             0});
             this.prd_ReprintAllIn.Name = "prd_ReprintAllIn";
             this.prd_ReprintAllIn.Size = new System.Drawing.Size(63, 20);
-            this.prd_ReprintAllIn.TabIndex = 36;
+            this.prd_ReprintAllIn.TabIndex = 15;
             this.prd_ReprintAllIn.ThousandsSeparator = true;
             this.prd_ReprintAllIn.ValueChanged += new System.EventHandler(this.prd_ReprintAllIn_ValueChanged);
+            this.prd_ReprintAllIn.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // prd_Acrylic
             // 
@@ -1567,9 +1585,10 @@
             0});
             this.prd_Acrylic.Name = "prd_Acrylic";
             this.prd_Acrylic.Size = new System.Drawing.Size(63, 20);
-            this.prd_Acrylic.TabIndex = 35;
+            this.prd_Acrylic.TabIndex = 14;
             this.prd_Acrylic.ThousandsSeparator = true;
             this.prd_Acrylic.ValueChanged += new System.EventHandler(this.prd_Acrylic_ValueChanged);
+            this.prd_Acrylic.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // prd_Base
             // 
@@ -1581,9 +1600,10 @@
             0});
             this.prd_Base.Name = "prd_Base";
             this.prd_Base.Size = new System.Drawing.Size(63, 20);
-            this.prd_Base.TabIndex = 34;
+            this.prd_Base.TabIndex = 13;
             this.prd_Base.ThousandsSeparator = true;
             this.prd_Base.ValueChanged += new System.EventHandler(this.prd_Base_ValueChanged);
+            this.prd_Base.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // prd_AllIn
             // 
@@ -1601,9 +1621,10 @@
             -2147483648});
             this.prd_AllIn.Name = "prd_AllIn";
             this.prd_AllIn.Size = new System.Drawing.Size(63, 20);
-            this.prd_AllIn.TabIndex = 33;
+            this.prd_AllIn.TabIndex = 12;
             this.prd_AllIn.ThousandsSeparator = true;
             this.prd_AllIn.ValueChanged += new System.EventHandler(this.prd_AllIn_ValueChanged);
+            this.prd_AllIn.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // lbl_AcrylicAddOnPrice
             // 
@@ -1713,7 +1734,7 @@
             this.grp_Packages.Location = new System.Drawing.Point(3, 144);
             this.grp_Packages.Name = "grp_Packages";
             this.grp_Packages.Size = new System.Drawing.Size(241, 180);
-            this.grp_Packages.TabIndex = 97;
+            this.grp_Packages.TabIndex = 2;
             this.grp_Packages.TabStop = false;
             this.grp_Packages.Text = "Packages:";
             // 
@@ -1727,9 +1748,10 @@
             0});
             this.count_clicker.Name = "count_clicker";
             this.count_clicker.Size = new System.Drawing.Size(63, 20);
-            this.count_clicker.TabIndex = 38;
+            this.count_clicker.TabIndex = 8;
             this.count_clicker.ThousandsSeparator = true;
             this.count_clicker.ValueChanged += new System.EventHandler(this.count_clicker_ValueChanged);
+            this.count_clicker.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label6
             // 
@@ -1750,9 +1772,10 @@
             0});
             this.count_PAX.Name = "count_PAX";
             this.count_PAX.Size = new System.Drawing.Size(63, 20);
-            this.count_PAX.TabIndex = 36;
+            this.count_PAX.TabIndex = 10;
             this.count_PAX.ThousandsSeparator = true;
             this.count_PAX.ValueChanged += new System.EventHandler(this.count_PAX_ValueChanged);
+            this.count_PAX.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label5
             // 
@@ -1773,9 +1796,10 @@
             0});
             this.count_labtech.Name = "count_labtech";
             this.count_labtech.Size = new System.Drawing.Size(63, 20);
-            this.count_labtech.TabIndex = 34;
+            this.count_labtech.TabIndex = 9;
             this.count_labtech.ThousandsSeparator = true;
             this.count_labtech.ValueChanged += new System.EventHandler(this.lblHeadcount_ValueChanged);
+            this.count_labtech.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // pkgsViewedNS
             // 
@@ -1787,9 +1811,10 @@
             0});
             this.pkgsViewedNS.Name = "pkgsViewedNS";
             this.pkgsViewedNS.Size = new System.Drawing.Size(63, 20);
-            this.pkgsViewedNS.TabIndex = 32;
+            this.pkgsViewedNS.TabIndex = 7;
             this.pkgsViewedNS.ThousandsSeparator = true;
             this.pkgsViewedNS.ValueChanged += new System.EventHandler(this.packages_ValueChanged);
+            this.pkgsViewedNS.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label56
             // 
@@ -1810,9 +1835,10 @@
             0});
             this.pkgsNotViewed.Name = "pkgsNotViewed";
             this.pkgsNotViewed.Size = new System.Drawing.Size(63, 20);
-            this.pkgsNotViewed.TabIndex = 31;
+            this.pkgsNotViewed.TabIndex = 6;
             this.pkgsNotViewed.ThousandsSeparator = true;
             this.pkgsNotViewed.ValueChanged += new System.EventHandler(this.packages_ValueChanged);
+            this.pkgsNotViewed.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // pkgsOut
             // 
@@ -1824,9 +1850,10 @@
             0});
             this.pkgsOut.Name = "pkgsOut";
             this.pkgsOut.Size = new System.Drawing.Size(63, 20);
-            this.pkgsOut.TabIndex = 30;
+            this.pkgsOut.TabIndex = 5;
             this.pkgsOut.ThousandsSeparator = true;
             this.pkgsOut.ValueChanged += new System.EventHandler(this.packages_ValueChanged);
+            this.pkgsOut.Enter += new System.EventHandler(this.SelectAllText);
             // 
             // label3
             // 
