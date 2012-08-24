@@ -50,6 +50,7 @@
             this.btnSavePic = new System.Windows.Forms.Button();
             this.btnNewBoat = new System.Windows.Forms.Button();
             this.btnLockBoat = new System.Windows.Forms.Button();
+            this.changeSavePathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // menu_LoadDay
             // 
+            this.menu_LoadDay.Enabled = false;
             this.menu_LoadDay.Name = "menu_LoadDay";
             this.menu_LoadDay.Size = new System.Drawing.Size(137, 22);
             this.menu_LoadDay.Text = "Load Day";
@@ -152,22 +154,23 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changePricesToolStripMenuItem});
+            this.changePricesToolStripMenuItem,
+            this.changeSavePathToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // changePricesToolStripMenuItem
             // 
             this.changePricesToolStripMenuItem.Name = "changePricesToolStripMenuItem";
-            this.changePricesToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.changePricesToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.changePricesToolStripMenuItem.Text = "Change Prices";
             this.changePricesToolStripMenuItem.Click += new System.EventHandler(this.Click_Change_Price);
             // 
             // menu_deleteBoat
             // 
             this.menu_deleteBoat.Name = "menu_deleteBoat";
-            this.menu_deleteBoat.Size = new System.Drawing.Size(134, 22);
+            this.menu_deleteBoat.Size = new System.Drawing.Size(152, 22);
             this.menu_deleteBoat.Text = "Delete Boat";
             this.menu_deleteBoat.Click += new System.EventHandler(this.DeleteBoat_Click);
             // 
@@ -227,6 +230,13 @@
             this.btnLockBoat.UseVisualStyleBackColor = true;
             this.btnLockBoat.Click += new System.EventHandler(this.LockBoat_Click);
             // 
+            // changeSavePathToolStripMenuItem
+            // 
+            this.changeSavePathToolStripMenuItem.Name = "changeSavePathToolStripMenuItem";
+            this.changeSavePathToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.changeSavePathToolStripMenuItem.Text = "Change Save Path";
+            this.changeSavePathToolStripMenuItem.Click += new System.EventHandler(this.changeSavePathToolStripMenuItem_Click);
+            // 
             // BoatSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,6 +283,7 @@
         private System.Windows.Forms.Button btnSavePic;
         private System.Windows.Forms.Button btnNewBoat;
         private System.Windows.Forms.Button btnLockBoat;
+        private System.Windows.Forms.ToolStripMenuItem changeSavePathToolStripMenuItem;
     }
 }
 

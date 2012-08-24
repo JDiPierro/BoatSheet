@@ -6,7 +6,6 @@ namespace BoatSheet
     [Serializable]
     class Settings : ISerializable
     {
-
         public static Settings GlobalSettings;
 
         public static string SettingsFileName = "boatSettings.lgset";
@@ -39,7 +38,7 @@ namespace BoatSheet
 
             lastSaveLoc = String.Empty;
 
-            defaultSaveLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            defaultSaveLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\LG Daily Worksheets\\";
         }
 
         public Settings(SerializationInfo info, StreamingContext context)

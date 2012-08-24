@@ -95,6 +95,12 @@
     <Compile Include="GUI\Manager\ChangePrice.Designer.cs">
       <DependentUpon>ChangePrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Manager\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Manager\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Util\Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Manager\ChangePrice.resx">
       <DependentUpon>ChangePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Manager\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Util\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>

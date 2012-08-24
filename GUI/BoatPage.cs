@@ -370,6 +370,7 @@ namespace BoatSheet
             AddCC addTo = new AddCC(currBoat, "Amex");
             addTo.ShowDialog();
             lbl_Amex.Value = currBoat.amEx.total;
+            currBoat.updateTotals();
             updateStatDisplay();
         }
 
@@ -378,6 +379,7 @@ namespace BoatSheet
             AddCC addTo = new AddCC(currBoat, "Visa");
             addTo.ShowDialog();
             lbl_Visa.Value = currBoat.visa.total;
+            currBoat.updateTotals();
             updateStatDisplay();
         }
 
@@ -386,6 +388,7 @@ namespace BoatSheet
             AddCC addTo = new AddCC(currBoat, "Mastercard");
             addTo.ShowDialog();
             lbl_Mastercard.Value = currBoat.mastercard.total;
+            currBoat.updateTotals();
             updateStatDisplay();
         }
 
@@ -394,6 +397,7 @@ namespace BoatSheet
             AddCC addTo = new AddCC(currBoat, "Discover");
             addTo.ShowDialog();
             lbl_Discover.Value = currBoat.discover.total;
+            currBoat.updateTotals();
             updateStatDisplay();
         }
 
@@ -402,6 +406,7 @@ namespace BoatSheet
             AddCC addTo = new AddCC(currBoat, "Direct Bill to Host");
             addTo.ShowDialog();
             lbl_DirectBill.Value = currBoat.directBill.total;
+            currBoat.updateTotals();
             updateStatDisplay();
         }
 
@@ -410,6 +415,7 @@ namespace BoatSheet
             AddCC addTo = new AddCC(currBoat, "Personal Check");
             addTo.ShowDialog();
             lbl_Check.Value = currBoat.personalCheck.total;
+            currBoat.updateTotals();
             updateStatDisplay();
         }
         #endregion Add CCs

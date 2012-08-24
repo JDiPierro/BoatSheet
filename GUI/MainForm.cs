@@ -24,7 +24,7 @@ namespace BoatSheet
                 //No: Make new Settings file with defaults
             loadSettings();
 
-            string defaultFilePath = Settings.GlobalSettings.defaultSaveLoc + "\\LG Daily Worksheets\\";
+            string defaultFilePath = Settings.GlobalSettings.defaultSaveLoc;
             loadToday(ref defaultFilePath);
             updateLockButton();
         }
@@ -267,13 +267,19 @@ namespace BoatSheet
         {
             if (tabControl.TabCount > 0)
             {
-                var currPage = (BoatPage) tabControl.SelectedTab.Controls[0];
-
-                if (currPage.currBoat.isLocked)
+                try
                 {
-                    btnLockBoat.Text = "Unlock Boat";
+                    var currPage = (BoatPage) tabControl.SelectedTab.Controls[0];
+                    if (currPage.currBoat.isLocked)
+                    {
+                        btnLockBoat.Text = "Unlock Boat";
+                    }
+                    else btnLockBoat.Text = "Lock Boat";
                 }
-                else btnLockBoat.Text = "Lock Boat";
+                catch
+                {
+                    
+                }
             }
         }
 
@@ -286,12 +292,18 @@ namespace BoatSheet
 
         private void tabControl_Deselected(object sender, TabControlEventArgs e)
         {
-            var page = (BoatPage)tabControl.SelectedTab.Controls[0];
+            var page = (BoatPage) tabControl.SelectedTab.Controls[0];
 
             if (!page.currBoat.isLocked)
             {
                 page.toggleBoatLock(false);
             }
+        }
+
+        private void changeSavePathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var options = new Options();
+            options.ShowDialog();
         }
     }
 }
